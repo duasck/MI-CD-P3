@@ -66,8 +66,11 @@ module main(
 	// mux_estado
 	mux_estado(.estado(estado_atual), .dezena(dezSegIn), .unidade(uniSegIn));
 	
+	wire res;
+	
+	assign res = (r ||  ((estado_atual[2]) & (~estado_atual[1]) & (estado_atual[0])) || ((~estado_atual[2]) & (~estado_atual[1]) & (estado_atual[0])));
 	//modulo para unidades e dezenas
-	contador_de_segundos unidades (.clk(clk7seg), .reset(r), .uni_segundos_in(uniSegIn), .dez_segundos_in(dezSegIn), .uni_segundos(uniSeg), .dez_segundos(dezSeg));
+	contador_de_segundos unidades (.clk(clk7seg), .reset(res), .uni_segundos_in(uniSegIn), .dez_segundos_in(dezSegIn), .uni_segundos(uniSeg), .dez_segundos(dezSeg));
 	
 	//Unidade de segundo
 	decod7seg dec0 (.A(uniSeg[3]), .B(uniSeg[2]), .C(uniSeg[1]), .D(uniSeg[0]), .a(d1[6]), .b(d1[5]), .c(d1[4]),
