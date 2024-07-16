@@ -1,0 +1,71 @@
+|contador_de_segundos
+clk => clk.IN1
+reset => reset.IN2
+uni_segundos_in[0] => uni_segundos_in[0].IN1
+uni_segundos_in[1] => uni_segundos_in[1].IN1
+uni_segundos_in[2] => uni_segundos_in[2].IN1
+uni_segundos_in[3] => uni_segundos_in[3].IN1
+dez_segundos_in[0] => dez_segundos_in[0].IN1
+dez_segundos_in[1] => dez_segundos_in[1].IN1
+dez_segundos_in[2] => dez_segundos_in[2].IN1
+dez_segundos_in[3] => dez_segundos_in[3].IN1
+load => ~NO_FANOUT~
+timeout <= timeout.DB_MAX_OUTPUT_PORT_TYPE
+uni_segundos[0] <= contador_BCD_decrescente:contador_unidade.bcd
+uni_segundos[1] <= contador_BCD_decrescente:contador_unidade.bcd
+uni_segundos[2] <= contador_BCD_decrescente:contador_unidade.bcd
+uni_segundos[3] <= contador_BCD_decrescente:contador_unidade.bcd
+dez_segundos[0] <= contador_BCD_decrescente:contador_dezena.bcd
+dez_segundos[1] <= contador_BCD_decrescente:contador_dezena.bcd
+dez_segundos[2] <= contador_BCD_decrescente:contador_dezena.bcd
+dez_segundos[3] <= contador_BCD_decrescente:contador_dezena.bcd
+
+
+|contador_de_segundos|contador_BCD_decrescente:contador_unidade
+clk => carry~reg0.CLK
+clk => load.CLK
+clk => count[0].CLK
+clk => count[1].CLK
+clk => count[2].CLK
+clk => count[3].CLK
+rst => carry~reg0.ACLR
+rst => load.PRESET
+rst => count[0].PRESET
+rst => count[1].ACLR
+rst => count[2].ACLR
+rst => count[3].PRESET
+data[0] => count.DATAB
+data[1] => count.DATAB
+data[2] => count.DATAB
+data[3] => count.DATAB
+bcd[0] <= count[0].DB_MAX_OUTPUT_PORT_TYPE
+bcd[1] <= count[1].DB_MAX_OUTPUT_PORT_TYPE
+bcd[2] <= count[2].DB_MAX_OUTPUT_PORT_TYPE
+bcd[3] <= count[3].DB_MAX_OUTPUT_PORT_TYPE
+carry <= carry~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|contador_de_segundos|contador_BCD_decrescente:contador_dezena
+clk => carry~reg0.CLK
+clk => load.CLK
+clk => count[0].CLK
+clk => count[1].CLK
+clk => count[2].CLK
+clk => count[3].CLK
+rst => carry~reg0.ACLR
+rst => load.PRESET
+rst => count[0].PRESET
+rst => count[1].ACLR
+rst => count[2].ACLR
+rst => count[3].PRESET
+data[0] => count.DATAB
+data[1] => count.DATAB
+data[2] => count.DATAB
+data[3] => count.DATAB
+bcd[0] <= count[0].DB_MAX_OUTPUT_PORT_TYPE
+bcd[1] <= count[1].DB_MAX_OUTPUT_PORT_TYPE
+bcd[2] <= count[2].DB_MAX_OUTPUT_PORT_TYPE
+bcd[3] <= count[3].DB_MAX_OUTPUT_PORT_TYPE
+carry <= carry~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+

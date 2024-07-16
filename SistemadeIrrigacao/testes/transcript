@@ -1,0 +1,11 @@
+# do temp_simlib_comp.tmp
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 12:12:00 on May 24,2024
+# vlog -work altera_ver -vlog01compat c:/intelfpga_lite/20.1/quartus/eda/sim_lib/altera_primitives.v 
+# init_dbinfo() DATABASE ERROR: (sqlite3_open D:/Dev/Verilog/Sistema de Irrigação/testes/verilog_libs/altera_ver/_lib.qdb): unable to open database file
+# mtilibWrite(): INTERNAL ERROR: Unexpected null object encountered
+# ** Fatal: (vlog-9) Problem while writing internal20180930A file "D:/Dev/Verilog/Sistema de Irrigação/testes/verilog_libs/altera_ver/_temp/vlog5dybyh".
+# c:/intelfpga_lite/20.1/quartus/eda/sim_lib/altera_primitives.v(38): Verilog Compiler exiting
+# End time: 12:12:00 on May 24,2024, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+# 1

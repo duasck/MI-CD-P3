@@ -1,0 +1,57 @@
+module contador_de_segundos(
+    input wire clk,             // Clock de entrada
+    input wire [3:0] start_val, // Valor inicial de 4 bits para o contador de unidades
+    input wire load,            // Sinal de carga para iniciar os contadores
+    input wire [3:0] data,      // Dado de entrada para carga inicial
+    output wire timeout         // Saída de timeout
+);
+
+reg [3:0] uni_segundos;
+reg [3:0] dez_segundos;
+reg carry;
+reg load_unidade;
+reg load_dezena;
+
+// Instâncias dos contadores BCD decrescentes
+contador_BCD_decrescente contador_unidade (
+    .clk(clk),
+    .rst(0),
+    .load(load_unidade),
+    .data(data),
+    .bcd(uni_segundos)
+);
+
+contador_BCD_decrescente contador_dezena (
+    .clk(clk),
+    .rst(0),
+    .load(load_dezena),
+    .data(data),
+    .bcd(dez_segundos)
+);
+
+always @(posedge clk) begin
+    if (load) begin
+        load_unidade <= 1'b1;
+        load_dezena <= 1'b1;
+    end else begin
+        load_unidade <= 1'b0;
+        load_dezena <= 1'b0;
+    end
+
+    if (uni_segundos == 4'b0000 && ~carry) begin
+        uni_segundos <= start_val;
+        carry <= 1'b1;
+    end else if (uni_segundos == 4'b0000 && carry) begin
+        uni_segundos <= start_val;
+        carry <= 1'b0;
+        if (dez_segundos != 4'b0000) begin
+            dez_segundos <= dez_segundos - 1;
+        end else begin
+            timeout <= 1; // Sinal de timeout quando ambos contadores zeram
+        end
+    end else begin
+        uni_segundos <= uni_segundos - 1;
+    end
+end
+
+endmodule

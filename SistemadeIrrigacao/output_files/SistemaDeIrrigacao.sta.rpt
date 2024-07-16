@@ -1,0 +1,453 @@
+Timing Analyzer report for SistemaDeIrrigacao
+Tue Jul 16 00:04:46 2024
+Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Timing Analyzer Summary
+  3. Parallel Compilation
+  4. Clocks
+  5. Fmax Summary
+  6. Setup Summary
+  7. Hold Summary
+  8. Recovery Summary
+  9. Removal Summary
+ 10. Minimum Pulse Width Summary
+ 11. Setup: 'clk'
+ 12. Setup: 'contador_BCD_decrescente:contador_unidade|carry'
+ 13. Hold: 'clk'
+ 14. Hold: 'contador_BCD_decrescente:contador_unidade|carry'
+ 15. Setup Transfers
+ 16. Hold Transfers
+ 17. Report TCCS
+ 18. Report RSKM
+ 19. Unconstrained Paths Summary
+ 20. Clock Status Summary
+ 21. Unconstrained Input Ports
+ 22. Unconstrained Output Ports
+ 23. Unconstrained Input Ports
+ 24. Unconstrained Output Ports
+ 25. Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2020  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++-----------------------------------------------------------------------------+
+; Timing Analyzer Summary                                                     ;
++-----------------------+-----------------------------------------------------+
+; Quartus Prime Version ; Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
+; Timing Analyzer       ; Legacy Timing Analyzer                              ;
+; Revision Name         ; SistemaDeIrrigacao                                  ;
+; Device Family         ; MAX II                                              ;
+; Device Name           ; EPM240T100C5                                        ;
+; Timing Models         ; Final                                               ;
+; Delay Model           ; Slow Model                                          ;
+; Rise/Fall Delays      ; Unavailable                                         ;
++-----------------------+-----------------------------------------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 16          ;
+; Maximum allowed            ; 16          ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 1           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
++----------------------------+-------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clocks                                                                                                                                                                                                                                                           ;
++-------------------------------------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+-----------------------------------------------------+
+; Clock Name                                      ; Type ; Period ; Frequency  ; Rise  ; Fall  ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master ; Source ; Targets                                             ;
++-------------------------------------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+-----------------------------------------------------+
+; clk                                             ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { clk }                                             ;
+; contador_BCD_decrescente:contador_unidade|carry ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { contador_BCD_decrescente:contador_unidade|carry } ;
++-------------------------------------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+-----------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------+
+; Fmax Summary                                                                          ;
++------------+-----------------+-------------------------------------------------+------+
+; Fmax       ; Restricted Fmax ; Clock Name                                      ; Note ;
++------------+-----------------+-------------------------------------------------+------+
+; 237.08 MHz ; 237.08 MHz      ; clk                                             ;      ;
+; 242.42 MHz ; 242.42 MHz      ; contador_BCD_decrescente:contador_unidade|carry ;      ;
++------------+-----------------+-------------------------------------------------+------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
++--------------------------------------------------------------------------+
+; Setup Summary                                                            ;
++-------------------------------------------------+--------+---------------+
+; Clock                                           ; Slack  ; End Point TNS ;
++-------------------------------------------------+--------+---------------+
+; clk                                             ; -3.218 ; -13.676       ;
+; contador_BCD_decrescente:contador_unidade|carry ; -3.125 ; -13.122       ;
++-------------------------------------------------+--------+---------------+
+
+
++--------------------------------------------------------------------------+
+; Hold Summary                                                             ;
++-------------------------------------------------+--------+---------------+
+; Clock                                           ; Slack  ; End Point TNS ;
++-------------------------------------------------+--------+---------------+
+; clk                                             ; -2.042 ; -2.042        ;
+; contador_BCD_decrescente:contador_unidade|carry ; 1.952  ; 0.000         ;
++-------------------------------------------------+--------+---------------+
+
+
+--------------------
+; Recovery Summary ;
+--------------------
+No paths to report.
+
+
+-------------------
+; Removal Summary ;
+-------------------
+No paths to report.
+
+
++--------------------------------------------------------------------------+
+; Minimum Pulse Width Summary                                              ;
++-------------------------------------------------+--------+---------------+
+; Clock                                           ; Slack  ; End Point TNS ;
++-------------------------------------------------+--------+---------------+
+; clk                                             ; -2.289 ; -2.289        ;
+; contador_BCD_decrescente:contador_unidade|carry ; 0.234  ; 0.000         ;
++-------------------------------------------------+--------+---------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Setup: 'clk'                                                                                                                                                                                                              ;
++--------+----------------------------------------------------+----------------------------------------------------+-------------------------------------------------+-------------+--------------+------------+------------+
+; Slack  ; From Node                                          ; To Node                                            ; Launch Clock                                    ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+----------------------------------------------------+----------------------------------------------------+-------------------------------------------------+-------------+--------------+------------+------------+
+; -3.218 ; contador_BCD_decrescente:contador_unidade|count[1] ; contador_BCD_decrescente:contador_unidade|carry    ; clk                                             ; clk         ; 1.000        ; 0.000      ; 3.885      ;
+; -3.208 ; contador_BCD_decrescente:contador_unidade|count[1] ; contador_BCD_decrescente:contador_unidade|count[2] ; clk                                             ; clk         ; 1.000        ; 0.000      ; 3.875      ;
+; -3.046 ; contador_BCD_decrescente:contador_unidade|count[0] ; contador_BCD_decrescente:contador_unidade|carry    ; clk                                             ; clk         ; 1.000        ; 0.000      ; 3.713      ;
+; -3.036 ; contador_BCD_decrescente:contador_unidade|count[0] ; contador_BCD_decrescente:contador_unidade|count[2] ; clk                                             ; clk         ; 1.000        ; 0.000      ; 3.703      ;
+; -3.012 ; contador_BCD_decrescente:contador_unidade|count[0] ; contador_BCD_decrescente:contador_unidade|count[1] ; clk                                             ; clk         ; 1.000        ; 0.000      ; 3.679      ;
+; -2.831 ; contador_BCD_decrescente:contador_unidade|count[2] ; contador_BCD_decrescente:contador_unidade|carry    ; clk                                             ; clk         ; 1.000        ; 0.000      ; 3.498      ;
+; -2.821 ; contador_BCD_decrescente:contador_unidade|count[2] ; contador_BCD_decrescente:contador_unidade|count[2] ; clk                                             ; clk         ; 1.000        ; 0.000      ; 3.488      ;
+; -2.496 ; contador_BCD_decrescente:contador_unidade|count[1] ; contador_BCD_decrescente:contador_unidade|count[3] ; clk                                             ; clk         ; 1.000        ; 0.000      ; 3.163      ;
+; -2.496 ; contador_BCD_decrescente:contador_unidade|count[3] ; contador_BCD_decrescente:contador_unidade|carry    ; clk                                             ; clk         ; 1.000        ; 0.000      ; 3.163      ;
+; -2.491 ; contador_BCD_decrescente:contador_unidade|count[1] ; contador_BCD_decrescente:contador_unidade|count[1] ; clk                                             ; clk         ; 1.000        ; 0.000      ; 3.158      ;
+; -2.486 ; contador_BCD_decrescente:contador_unidade|count[3] ; contador_BCD_decrescente:contador_unidade|count[2] ; clk                                             ; clk         ; 1.000        ; 0.000      ; 3.153      ;
+; -2.113 ; contador_BCD_decrescente:contador_unidade|count[2] ; contador_BCD_decrescente:contador_unidade|count[3] ; clk                                             ; clk         ; 1.000        ; 0.000      ; 2.780      ;
+; -2.104 ; contador_BCD_decrescente:contador_unidade|count[2] ; contador_BCD_decrescente:contador_unidade|count[1] ; clk                                             ; clk         ; 1.000        ; 0.000      ; 2.771      ;
+; -1.836 ; contador_BCD_decrescente:contador_unidade|count[3] ; contador_BCD_decrescente:contador_unidade|count[3] ; clk                                             ; clk         ; 1.000        ; 0.000      ; 2.503      ;
+; -1.784 ; contador_BCD_decrescente:contador_unidade|count[0] ; contador_BCD_decrescente:contador_unidade|count[3] ; clk                                             ; clk         ; 1.000        ; 0.000      ; 2.451      ;
+; -1.769 ; contador_BCD_decrescente:contador_unidade|count[3] ; contador_BCD_decrescente:contador_unidade|count[1] ; clk                                             ; clk         ; 1.000        ; 0.000      ; 2.436      ;
+; -1.746 ; contador_BCD_decrescente:contador_unidade|load     ; contador_BCD_decrescente:contador_unidade|count[2] ; clk                                             ; clk         ; 1.000        ; 0.000      ; 2.413      ;
+; -1.743 ; contador_BCD_decrescente:contador_unidade|load     ; contador_BCD_decrescente:contador_unidade|count[1] ; clk                                             ; clk         ; 1.000        ; 0.000      ; 2.410      ;
+; -1.742 ; contador_BCD_decrescente:contador_unidade|count[0] ; contador_BCD_decrescente:contador_unidade|count[0] ; clk                                             ; clk         ; 1.000        ; 0.000      ; 2.409      ;
+; -1.735 ; contador_BCD_decrescente:contador_unidade|load     ; contador_BCD_decrescente:contador_unidade|count[3] ; clk                                             ; clk         ; 1.000        ; 0.000      ; 2.402      ;
+; -1.730 ; contador_BCD_decrescente:contador_unidade|load     ; contador_BCD_decrescente:contador_unidade|carry    ; clk                                             ; clk         ; 1.000        ; 0.000      ; 2.397      ;
+; -1.619 ; contador_BCD_decrescente:contador_unidade|load     ; contador_BCD_decrescente:contador_unidade|count[0] ; clk                                             ; clk         ; 1.000        ; 0.000      ; 2.286      ;
+; 1.988  ; contador_BCD_decrescente:contador_unidade|carry    ; contador_BCD_decrescente:contador_unidade|carry    ; contador_BCD_decrescente:contador_unidade|carry ; clk         ; 0.500        ; 3.348      ; 1.903      ;
+; 2.488  ; contador_BCD_decrescente:contador_unidade|carry    ; contador_BCD_decrescente:contador_unidade|carry    ; contador_BCD_decrescente:contador_unidade|carry ; clk         ; 1.000        ; 3.348      ; 1.903      ;
++--------+----------------------------------------------------+----------------------------------------------------+-------------------------------------------------+-------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Setup: 'contador_BCD_decrescente:contador_unidade|carry'                                                                                                                                                                                                    ;
++--------+---------------------------------------------------+---------------------------------------------------+-------------------------------------------------+-------------------------------------------------+--------------+------------+------------+
+; Slack  ; From Node                                         ; To Node                                           ; Launch Clock                                    ; Latch Clock                                     ; Relationship ; Clock Skew ; Data Delay ;
++--------+---------------------------------------------------+---------------------------------------------------+-------------------------------------------------+-------------------------------------------------+--------------+------------+------------+
+; -3.125 ; contador_BCD_decrescente:contador_dezena|count[1] ; contador_BCD_decrescente:contador_dezena|count[1] ; contador_BCD_decrescente:contador_unidade|carry ; contador_BCD_decrescente:contador_unidade|carry ; 1.000        ; 0.000      ; 3.792      ;
+; -2.997 ; contador_BCD_decrescente:contador_dezena|count[2] ; contador_BCD_decrescente:contador_dezena|count[2] ; contador_BCD_decrescente:contador_unidade|carry ; contador_BCD_decrescente:contador_unidade|carry ; 1.000        ; 0.000      ; 3.664      ;
+; -2.916 ; contador_BCD_decrescente:contador_dezena|count[1] ; contador_BCD_decrescente:contador_dezena|count[2] ; contador_BCD_decrescente:contador_unidade|carry ; contador_BCD_decrescente:contador_unidade|carry ; 1.000        ; 0.000      ; 3.583      ;
+; -2.774 ; contador_BCD_decrescente:contador_dezena|count[0] ; contador_BCD_decrescente:contador_dezena|count[1] ; contador_BCD_decrescente:contador_unidade|carry ; contador_BCD_decrescente:contador_unidade|carry ; 1.000        ; 0.000      ; 3.441      ;
+; -2.765 ; contador_BCD_decrescente:contador_dezena|count[0] ; contador_BCD_decrescente:contador_dezena|count[2] ; contador_BCD_decrescente:contador_unidade|carry ; contador_BCD_decrescente:contador_unidade|carry ; 1.000        ; 0.000      ; 3.432      ;
+; -2.552 ; contador_BCD_decrescente:contador_dezena|count[3] ; contador_BCD_decrescente:contador_dezena|count[2] ; contador_BCD_decrescente:contador_unidade|carry ; contador_BCD_decrescente:contador_unidade|carry ; 1.000        ; 0.000      ; 3.219      ;
+; -2.550 ; contador_BCD_decrescente:contador_dezena|count[3] ; contador_BCD_decrescente:contador_dezena|count[1] ; contador_BCD_decrescente:contador_unidade|carry ; contador_BCD_decrescente:contador_unidade|carry ; 1.000        ; 0.000      ; 3.217      ;
+; -2.477 ; contador_BCD_decrescente:contador_dezena|count[1] ; contador_BCD_decrescente:contador_dezena|carry    ; contador_BCD_decrescente:contador_unidade|carry ; contador_BCD_decrescente:contador_unidade|carry ; 1.000        ; 0.000      ; 3.144      ;
+; -2.329 ; contador_BCD_decrescente:contador_dezena|count[0] ; contador_BCD_decrescente:contador_dezena|count[3] ; contador_BCD_decrescente:contador_unidade|carry ; contador_BCD_decrescente:contador_unidade|carry ; 1.000        ; 0.000      ; 2.996      ;
+; -2.326 ; contador_BCD_decrescente:contador_dezena|count[0] ; contador_BCD_decrescente:contador_dezena|carry    ; contador_BCD_decrescente:contador_unidade|carry ; contador_BCD_decrescente:contador_unidade|carry ; 1.000        ; 0.000      ; 2.993      ;
+; -2.216 ; contador_BCD_decrescente:contador_dezena|count[2] ; contador_BCD_decrescente:contador_dezena|count[1] ; contador_BCD_decrescente:contador_unidade|carry ; contador_BCD_decrescente:contador_unidade|carry ; 1.000        ; 0.000      ; 2.883      ;
+; -2.202 ; contador_BCD_decrescente:contador_dezena|load     ; contador_BCD_decrescente:contador_dezena|carry    ; contador_BCD_decrescente:contador_unidade|carry ; contador_BCD_decrescente:contador_unidade|carry ; 1.000        ; 0.000      ; 2.869      ;
+; -2.194 ; contador_BCD_decrescente:contador_dezena|load     ; contador_BCD_decrescente:contador_dezena|count[0] ; contador_BCD_decrescente:contador_unidade|carry ; contador_BCD_decrescente:contador_unidade|carry ; 1.000        ; 0.000      ; 2.861      ;
+; -2.137 ; contador_BCD_decrescente:contador_dezena|count[1] ; contador_BCD_decrescente:contador_dezena|count[3] ; contador_BCD_decrescente:contador_unidade|carry ; contador_BCD_decrescente:contador_unidade|carry ; 1.000        ; 0.000      ; 2.804      ;
+; -2.113 ; contador_BCD_decrescente:contador_dezena|count[3] ; contador_BCD_decrescente:contador_dezena|carry    ; contador_BCD_decrescente:contador_unidade|carry ; contador_BCD_decrescente:contador_unidade|carry ; 1.000        ; 0.000      ; 2.780      ;
+; -1.874 ; contador_BCD_decrescente:contador_dezena|carry    ; contador_BCD_decrescente:contador_dezena|carry    ; contador_BCD_decrescente:contador_unidade|carry ; contador_BCD_decrescente:contador_unidade|carry ; 1.000        ; 0.000      ; 2.541      ;
+; -1.860 ; contador_BCD_decrescente:contador_dezena|count[0] ; contador_BCD_decrescente:contador_dezena|count[0] ; contador_BCD_decrescente:contador_unidade|carry ; contador_BCD_decrescente:contador_unidade|carry ; 1.000        ; 0.000      ; 2.527      ;
+; -1.782 ; contador_BCD_decrescente:contador_dezena|count[2] ; contador_BCD_decrescente:contador_dezena|count[3] ; contador_BCD_decrescente:contador_unidade|carry ; contador_BCD_decrescente:contador_unidade|carry ; 1.000        ; 0.000      ; 2.449      ;
+; -1.779 ; contador_BCD_decrescente:contador_dezena|count[2] ; contador_BCD_decrescente:contador_dezena|carry    ; contador_BCD_decrescente:contador_unidade|carry ; contador_BCD_decrescente:contador_unidade|carry ; 1.000        ; 0.000      ; 2.446      ;
+; -1.716 ; contador_BCD_decrescente:contador_dezena|load     ; contador_BCD_decrescente:contador_dezena|count[2] ; contador_BCD_decrescente:contador_unidade|carry ; contador_BCD_decrescente:contador_unidade|carry ; 1.000        ; 0.000      ; 2.383      ;
+; -1.713 ; contador_BCD_decrescente:contador_dezena|load     ; contador_BCD_decrescente:contador_dezena|count[1] ; contador_BCD_decrescente:contador_unidade|carry ; contador_BCD_decrescente:contador_unidade|carry ; 1.000        ; 0.000      ; 2.380      ;
+; -1.706 ; contador_BCD_decrescente:contador_dezena|load     ; contador_BCD_decrescente:contador_dezena|count[3] ; contador_BCD_decrescente:contador_unidade|carry ; contador_BCD_decrescente:contador_unidade|carry ; 1.000        ; 0.000      ; 2.373      ;
+; -1.506 ; contador_BCD_decrescente:contador_dezena|count[3] ; contador_BCD_decrescente:contador_dezena|count[3] ; contador_BCD_decrescente:contador_unidade|carry ; contador_BCD_decrescente:contador_unidade|carry ; 1.000        ; 0.000      ; 2.173      ;
++--------+---------------------------------------------------+---------------------------------------------------+-------------------------------------------------+-------------------------------------------------+--------------+------------+------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Hold: 'clk'                                                                                                                                                                                                               ;
++--------+----------------------------------------------------+----------------------------------------------------+-------------------------------------------------+-------------+--------------+------------+------------+
+; Slack  ; From Node                                          ; To Node                                            ; Launch Clock                                    ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+----------------------------------------------------+----------------------------------------------------+-------------------------------------------------+-------------+--------------+------------+------------+
+; -2.042 ; contador_BCD_decrescente:contador_unidade|carry    ; contador_BCD_decrescente:contador_unidade|carry    ; contador_BCD_decrescente:contador_unidade|carry ; clk         ; 0.000        ; 3.348      ; 1.903      ;
+; -1.542 ; contador_BCD_decrescente:contador_unidade|carry    ; contador_BCD_decrescente:contador_unidade|carry    ; contador_BCD_decrescente:contador_unidade|carry ; clk         ; -0.500       ; 3.348      ; 1.903      ;
+; 2.065  ; contador_BCD_decrescente:contador_unidade|load     ; contador_BCD_decrescente:contador_unidade|count[0] ; clk                                             ; clk         ; 0.000        ; 0.000      ; 2.286      ;
+; 2.176  ; contador_BCD_decrescente:contador_unidade|load     ; contador_BCD_decrescente:contador_unidade|carry    ; clk                                             ; clk         ; 0.000        ; 0.000      ; 2.397      ;
+; 2.181  ; contador_BCD_decrescente:contador_unidade|load     ; contador_BCD_decrescente:contador_unidade|count[3] ; clk                                             ; clk         ; 0.000        ; 0.000      ; 2.402      ;
+; 2.188  ; contador_BCD_decrescente:contador_unidade|count[0] ; contador_BCD_decrescente:contador_unidade|count[0] ; clk                                             ; clk         ; 0.000        ; 0.000      ; 2.409      ;
+; 2.189  ; contador_BCD_decrescente:contador_unidade|load     ; contador_BCD_decrescente:contador_unidade|count[1] ; clk                                             ; clk         ; 0.000        ; 0.000      ; 2.410      ;
+; 2.192  ; contador_BCD_decrescente:contador_unidade|load     ; contador_BCD_decrescente:contador_unidade|count[2] ; clk                                             ; clk         ; 0.000        ; 0.000      ; 2.413      ;
+; 2.215  ; contador_BCD_decrescente:contador_unidade|count[3] ; contador_BCD_decrescente:contador_unidade|count[1] ; clk                                             ; clk         ; 0.000        ; 0.000      ; 2.436      ;
+; 2.230  ; contador_BCD_decrescente:contador_unidade|count[0] ; contador_BCD_decrescente:contador_unidade|count[3] ; clk                                             ; clk         ; 0.000        ; 0.000      ; 2.451      ;
+; 2.282  ; contador_BCD_decrescente:contador_unidade|count[3] ; contador_BCD_decrescente:contador_unidade|count[3] ; clk                                             ; clk         ; 0.000        ; 0.000      ; 2.503      ;
+; 2.456  ; contador_BCD_decrescente:contador_unidade|count[0] ; contador_BCD_decrescente:contador_unidade|count[2] ; clk                                             ; clk         ; 0.000        ; 0.000      ; 2.677      ;
+; 2.550  ; contador_BCD_decrescente:contador_unidade|count[2] ; contador_BCD_decrescente:contador_unidade|count[1] ; clk                                             ; clk         ; 0.000        ; 0.000      ; 2.771      ;
+; 2.559  ; contador_BCD_decrescente:contador_unidade|count[2] ; contador_BCD_decrescente:contador_unidade|count[3] ; clk                                             ; clk         ; 0.000        ; 0.000      ; 2.780      ;
+; 2.765  ; contador_BCD_decrescente:contador_unidade|count[0] ; contador_BCD_decrescente:contador_unidade|count[1] ; clk                                             ; clk         ; 0.000        ; 0.000      ; 2.986      ;
+; 2.787  ; contador_BCD_decrescente:contador_unidade|count[2] ; contador_BCD_decrescente:contador_unidade|count[2] ; clk                                             ; clk         ; 0.000        ; 0.000      ; 3.008      ;
+; 2.929  ; contador_BCD_decrescente:contador_unidade|count[1] ; contador_BCD_decrescente:contador_unidade|count[1] ; clk                                             ; clk         ; 0.000        ; 0.000      ; 3.150      ;
+; 2.932  ; contador_BCD_decrescente:contador_unidade|count[3] ; contador_BCD_decrescente:contador_unidade|count[2] ; clk                                             ; clk         ; 0.000        ; 0.000      ; 3.153      ;
+; 2.942  ; contador_BCD_decrescente:contador_unidade|count[3] ; contador_BCD_decrescente:contador_unidade|carry    ; clk                                             ; clk         ; 0.000        ; 0.000      ; 3.163      ;
+; 2.942  ; contador_BCD_decrescente:contador_unidade|count[1] ; contador_BCD_decrescente:contador_unidade|count[3] ; clk                                             ; clk         ; 0.000        ; 0.000      ; 3.163      ;
+; 3.170  ; contador_BCD_decrescente:contador_unidade|count[1] ; contador_BCD_decrescente:contador_unidade|count[2] ; clk                                             ; clk         ; 0.000        ; 0.000      ; 3.391      ;
+; 3.277  ; contador_BCD_decrescente:contador_unidade|count[2] ; contador_BCD_decrescente:contador_unidade|carry    ; clk                                             ; clk         ; 0.000        ; 0.000      ; 3.498      ;
+; 3.492  ; contador_BCD_decrescente:contador_unidade|count[0] ; contador_BCD_decrescente:contador_unidade|carry    ; clk                                             ; clk         ; 0.000        ; 0.000      ; 3.713      ;
+; 3.664  ; contador_BCD_decrescente:contador_unidade|count[1] ; contador_BCD_decrescente:contador_unidade|carry    ; clk                                             ; clk         ; 0.000        ; 0.000      ; 3.885      ;
++--------+----------------------------------------------------+----------------------------------------------------+-------------------------------------------------+-------------+--------------+------------+------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Hold: 'contador_BCD_decrescente:contador_unidade|carry'                                                                                                                                                                                                    ;
++-------+---------------------------------------------------+---------------------------------------------------+-------------------------------------------------+-------------------------------------------------+--------------+------------+------------+
+; Slack ; From Node                                         ; To Node                                           ; Launch Clock                                    ; Latch Clock                                     ; Relationship ; Clock Skew ; Data Delay ;
++-------+---------------------------------------------------+---------------------------------------------------+-------------------------------------------------+-------------------------------------------------+--------------+------------+------------+
+; 1.952 ; contador_BCD_decrescente:contador_dezena|count[3] ; contador_BCD_decrescente:contador_dezena|count[3] ; contador_BCD_decrescente:contador_unidade|carry ; contador_BCD_decrescente:contador_unidade|carry ; 0.000        ; 0.000      ; 2.173      ;
+; 2.152 ; contador_BCD_decrescente:contador_dezena|load     ; contador_BCD_decrescente:contador_dezena|count[3] ; contador_BCD_decrescente:contador_unidade|carry ; contador_BCD_decrescente:contador_unidade|carry ; 0.000        ; 0.000      ; 2.373      ;
+; 2.159 ; contador_BCD_decrescente:contador_dezena|load     ; contador_BCD_decrescente:contador_dezena|count[1] ; contador_BCD_decrescente:contador_unidade|carry ; contador_BCD_decrescente:contador_unidade|carry ; 0.000        ; 0.000      ; 2.380      ;
+; 2.162 ; contador_BCD_decrescente:contador_dezena|load     ; contador_BCD_decrescente:contador_dezena|count[2] ; contador_BCD_decrescente:contador_unidade|carry ; contador_BCD_decrescente:contador_unidade|carry ; 0.000        ; 0.000      ; 2.383      ;
+; 2.225 ; contador_BCD_decrescente:contador_dezena|count[2] ; contador_BCD_decrescente:contador_dezena|carry    ; contador_BCD_decrescente:contador_unidade|carry ; contador_BCD_decrescente:contador_unidade|carry ; 0.000        ; 0.000      ; 2.446      ;
+; 2.228 ; contador_BCD_decrescente:contador_dezena|count[2] ; contador_BCD_decrescente:contador_dezena|count[3] ; contador_BCD_decrescente:contador_unidade|carry ; contador_BCD_decrescente:contador_unidade|carry ; 0.000        ; 0.000      ; 2.449      ;
+; 2.306 ; contador_BCD_decrescente:contador_dezena|count[0] ; contador_BCD_decrescente:contador_dezena|count[0] ; contador_BCD_decrescente:contador_unidade|carry ; contador_BCD_decrescente:contador_unidade|carry ; 0.000        ; 0.000      ; 2.527      ;
+; 2.320 ; contador_BCD_decrescente:contador_dezena|carry    ; contador_BCD_decrescente:contador_dezena|carry    ; contador_BCD_decrescente:contador_unidade|carry ; contador_BCD_decrescente:contador_unidade|carry ; 0.000        ; 0.000      ; 2.541      ;
+; 2.559 ; contador_BCD_decrescente:contador_dezena|count[3] ; contador_BCD_decrescente:contador_dezena|carry    ; contador_BCD_decrescente:contador_unidade|carry ; contador_BCD_decrescente:contador_unidade|carry ; 0.000        ; 0.000      ; 2.780      ;
+; 2.583 ; contador_BCD_decrescente:contador_dezena|count[1] ; contador_BCD_decrescente:contador_dezena|count[3] ; contador_BCD_decrescente:contador_unidade|carry ; contador_BCD_decrescente:contador_unidade|carry ; 0.000        ; 0.000      ; 2.804      ;
+; 2.640 ; contador_BCD_decrescente:contador_dezena|load     ; contador_BCD_decrescente:contador_dezena|count[0] ; contador_BCD_decrescente:contador_unidade|carry ; contador_BCD_decrescente:contador_unidade|carry ; 0.000        ; 0.000      ; 2.861      ;
+; 2.648 ; contador_BCD_decrescente:contador_dezena|load     ; contador_BCD_decrescente:contador_dezena|carry    ; contador_BCD_decrescente:contador_unidade|carry ; contador_BCD_decrescente:contador_unidade|carry ; 0.000        ; 0.000      ; 2.869      ;
+; 2.662 ; contador_BCD_decrescente:contador_dezena|count[2] ; contador_BCD_decrescente:contador_dezena|count[1] ; contador_BCD_decrescente:contador_unidade|carry ; contador_BCD_decrescente:contador_unidade|carry ; 0.000        ; 0.000      ; 2.883      ;
+; 2.664 ; contador_BCD_decrescente:contador_dezena|count[2] ; contador_BCD_decrescente:contador_dezena|count[2] ; contador_BCD_decrescente:contador_unidade|carry ; contador_BCD_decrescente:contador_unidade|carry ; 0.000        ; 0.000      ; 2.885      ;
+; 2.772 ; contador_BCD_decrescente:contador_dezena|count[0] ; contador_BCD_decrescente:contador_dezena|carry    ; contador_BCD_decrescente:contador_unidade|carry ; contador_BCD_decrescente:contador_unidade|carry ; 0.000        ; 0.000      ; 2.993      ;
+; 2.775 ; contador_BCD_decrescente:contador_dezena|count[0] ; contador_BCD_decrescente:contador_dezena|count[3] ; contador_BCD_decrescente:contador_unidade|carry ; contador_BCD_decrescente:contador_unidade|carry ; 0.000        ; 0.000      ; 2.996      ;
+; 2.915 ; contador_BCD_decrescente:contador_dezena|count[0] ; contador_BCD_decrescente:contador_dezena|count[2] ; contador_BCD_decrescente:contador_unidade|carry ; contador_BCD_decrescente:contador_unidade|carry ; 0.000        ; 0.000      ; 3.136      ;
+; 2.923 ; contador_BCD_decrescente:contador_dezena|count[1] ; contador_BCD_decrescente:contador_dezena|carry    ; contador_BCD_decrescente:contador_unidade|carry ; contador_BCD_decrescente:contador_unidade|carry ; 0.000        ; 0.000      ; 3.144      ;
+; 2.996 ; contador_BCD_decrescente:contador_dezena|count[3] ; contador_BCD_decrescente:contador_dezena|count[1] ; contador_BCD_decrescente:contador_unidade|carry ; contador_BCD_decrescente:contador_unidade|carry ; 0.000        ; 0.000      ; 3.217      ;
+; 2.998 ; contador_BCD_decrescente:contador_dezena|count[3] ; contador_BCD_decrescente:contador_dezena|count[2] ; contador_BCD_decrescente:contador_unidade|carry ; contador_BCD_decrescente:contador_unidade|carry ; 0.000        ; 0.000      ; 3.219      ;
+; 3.209 ; contador_BCD_decrescente:contador_dezena|count[0] ; contador_BCD_decrescente:contador_dezena|count[1] ; contador_BCD_decrescente:contador_unidade|carry ; contador_BCD_decrescente:contador_unidade|carry ; 0.000        ; 0.000      ; 3.430      ;
+; 3.270 ; contador_BCD_decrescente:contador_dezena|count[1] ; contador_BCD_decrescente:contador_dezena|count[2] ; contador_BCD_decrescente:contador_unidade|carry ; contador_BCD_decrescente:contador_unidade|carry ; 0.000        ; 0.000      ; 3.491      ;
+; 3.360 ; contador_BCD_decrescente:contador_dezena|count[1] ; contador_BCD_decrescente:contador_dezena|count[1] ; contador_BCD_decrescente:contador_unidade|carry ; contador_BCD_decrescente:contador_unidade|carry ; 0.000        ; 0.000      ; 3.581      ;
++-------+---------------------------------------------------+---------------------------------------------------+-------------------------------------------------+-------------------------------------------------+--------------+------------+------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------+
+; Setup Transfers                                                                                                                               ;
++-------------------------------------------------+-------------------------------------------------+----------+----------+----------+----------+
+; From Clock                                      ; To Clock                                        ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++-------------------------------------------------+-------------------------------------------------+----------+----------+----------+----------+
+; clk                                             ; clk                                             ; 27       ; 0        ; 0        ; 0        ;
+; contador_BCD_decrescente:contador_unidade|carry ; clk                                             ; 1        ; 1        ; 0        ; 0        ;
+; contador_BCD_decrescente:contador_unidade|carry ; contador_BCD_decrescente:contador_unidade|carry ; 28       ; 0        ; 0        ; 0        ;
++-------------------------------------------------+-------------------------------------------------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------+
+; Hold Transfers                                                                                                                                ;
++-------------------------------------------------+-------------------------------------------------+----------+----------+----------+----------+
+; From Clock                                      ; To Clock                                        ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++-------------------------------------------------+-------------------------------------------------+----------+----------+----------+----------+
+; clk                                             ; clk                                             ; 27       ; 0        ; 0        ; 0        ;
+; contador_BCD_decrescente:contador_unidade|carry ; clk                                             ; 1        ; 1        ; 0        ; 0        ;
+; contador_BCD_decrescente:contador_unidade|carry ; contador_BCD_decrescente:contador_unidade|carry ; 28       ; 0        ; 0        ; 0        ;
++-------------------------------------------------+-------------------------------------------------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
+---------------
+; Report TCCS ;
+---------------
+No dedicated SERDES Transmitter circuitry present in device or used in design
+
+
+---------------
+; Report RSKM ;
+---------------
+No non-DPA dedicated SERDES Receiver circuitry present in device or used in design
+
+
++------------------------------------------------+
+; Unconstrained Paths Summary                    ;
++---------------------------------+-------+------+
+; Property                        ; Setup ; Hold ;
++---------------------------------+-------+------+
+; Illegal Clocks                  ; 0     ; 0    ;
+; Unconstrained Clocks            ; 0     ; 0    ;
+; Unconstrained Input Ports       ; 9     ; 9    ;
+; Unconstrained Input Port Paths  ; 20    ; 20   ;
+; Unconstrained Output Ports      ; 9     ; 9    ;
+; Unconstrained Output Port Paths ; 10    ; 10   ;
++---------------------------------+-------+------+
+
+
++------------------------------------------------------------------------------------------------------------------------+
+; Clock Status Summary                                                                                                   ;
++-------------------------------------------------+-------------------------------------------------+------+-------------+
+; Target                                          ; Clock                                           ; Type ; Status      ;
++-------------------------------------------------+-------------------------------------------------+------+-------------+
+; clk                                             ; clk                                             ; Base ; Constrained ;
+; contador_BCD_decrescente:contador_unidade|carry ; contador_BCD_decrescente:contador_unidade|carry ; Base ; Constrained ;
++-------------------------------------------------+-------------------------------------------------+------+-------------+
+
+
++-----------------------------------------------------------------------------------------------------------+
+; Unconstrained Input Ports                                                                                 ;
++--------------------+--------------------------------------------------------------------------------------+
+; Input Port         ; Comment                                                                              ;
++--------------------+--------------------------------------------------------------------------------------+
+; dez_segundos_in[0] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; dez_segundos_in[1] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; dez_segundos_in[2] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; dez_segundos_in[3] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; reset              ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; uni_segundos_in[0] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; uni_segundos_in[1] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; uni_segundos_in[2] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; uni_segundos_in[3] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
++--------------------+--------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------+
+; Unconstrained Output Ports                                                                              ;
++-----------------+---------------------------------------------------------------------------------------+
+; Output Port     ; Comment                                                                               ;
++-----------------+---------------------------------------------------------------------------------------+
+; dez_segundos[0] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; dez_segundos[1] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; dez_segundos[2] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; dez_segundos[3] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; timeout         ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; uni_segundos[0] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; uni_segundos[1] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; uni_segundos[2] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; uni_segundos[3] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
++-----------------+---------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------+
+; Unconstrained Input Ports                                                                                 ;
++--------------------+--------------------------------------------------------------------------------------+
+; Input Port         ; Comment                                                                              ;
++--------------------+--------------------------------------------------------------------------------------+
+; dez_segundos_in[0] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; dez_segundos_in[1] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; dez_segundos_in[2] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; dez_segundos_in[3] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; reset              ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; uni_segundos_in[0] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; uni_segundos_in[1] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; uni_segundos_in[2] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; uni_segundos_in[3] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
++--------------------+--------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------+
+; Unconstrained Output Ports                                                                              ;
++-----------------+---------------------------------------------------------------------------------------+
+; Output Port     ; Comment                                                                               ;
++-----------------+---------------------------------------------------------------------------------------+
+; dez_segundos[0] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; dez_segundos[1] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; dez_segundos[2] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; dez_segundos[3] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; timeout         ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; uni_segundos[0] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; uni_segundos[1] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; uni_segundos[2] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; uni_segundos[3] ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
++-----------------+---------------------------------------------------------------------------------------+
+
+
++--------------------------+
+; Timing Analyzer Messages ;
++--------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Timing Analyzer
+    Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
+    Info: Processing started: Tue Jul 16 00:04:45 2024
+Info: Command: quartus_sta SistemaDeIrrigacao -c SistemaDeIrrigacao
+Info: qsta_default_script.tcl version: #1
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
+Info (21077): Low junction temperature is 0 degrees C
+Info (21077): High junction temperature is 85 degrees C
+Info (334003): Started post-fitting delay annotation
+Info (334004): Delay annotation completed successfully
+Critical Warning (332012): Synopsys Design Constraints File file not found: 'SistemaDeIrrigacao.sdc'. A Synopsys Design Constraints File is required by the Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
+Info (332142): No user constrained base clocks found in the design. Calling "derive_clocks -period 1.0"
+Info (332105): Deriving Clocks
+    Info (332105): create_clock -period 1.000 -name clk clk
+    Info (332105): create_clock -period 1.000 -name contador_BCD_decrescente:contador_unidade|carry contador_BCD_decrescente:contador_unidade|carry
+Info: Found TIMING_ANALYZER_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
+Info: Can't run Report Timing Closure Recommendations. The current device family is not supported.
+Critical Warning (332148): Timing requirements not met
+Info (332146): Worst-case setup slack is -3.218
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -3.218             -13.676 clk 
+    Info (332119):    -3.125             -13.122 contador_BCD_decrescente:contador_unidade|carry 
+Info (332146): Worst-case hold slack is -2.042
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -2.042              -2.042 clk 
+    Info (332119):     1.952               0.000 contador_BCD_decrescente:contador_unidade|carry 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -2.289
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -2.289              -2.289 clk 
+    Info (332119):     0.234               0.000 contador_BCD_decrescente:contador_unidade|carry 
+Info (332001): The selected device family is not supported by the report_metastability command.
+Info (332102): Design is not fully constrained for setup requirements
+Info (332102): Design is not fully constrained for hold requirements
+Info: Quartus Prime Timing Analyzer was successful. 0 errors, 3 warnings
+    Info: Peak virtual memory: 4677 megabytes
+    Info: Processing ended: Tue Jul 16 00:04:46 2024
+    Info: Elapsed time: 00:00:01
+    Info: Total CPU time (on all processors): 00:00:01
+
+

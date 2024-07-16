@@ -1,0 +1,27 @@
+module contador_BCD_decrescente(
+    input wire clk,        // Clock de entrada
+    input wire rst,        // Reset
+    input wire load,       // Sinal de carga (ativa em nível alto)
+    input wire [3:0] data, // Dado de entrada para carga inicial
+    output reg [3:0] bcd   // Saída em BCD de 4 bits
+);
+
+reg [3:0] count;
+
+always @(posedge clk or posedge rst) begin
+    if (rst) begin
+        count <= 4'b1001; // Inicializa com 9 (1001 em BCD)
+    end else if (load) begin
+        count <= data; // Carrega dado externo quando load é ativado
+    end else begin
+        if (count == 4'b0000) begin
+            count <= 4'b1001; // Volta para 9 (1001 em BCD) quando chega a 0
+        end else begin
+            count <= count - 1; // Contagem decrescente
+        end
+    end
+end
+
+assign bcd = count;
+
+endmodule

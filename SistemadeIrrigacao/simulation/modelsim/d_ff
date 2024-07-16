@@ -1,0 +1,13 @@
+module d_ff (d, clk, q, qbar);
+	input d, clk;
+	output q, qbar;
+	
+	wire fio1, fio2, fio3;
+	
+	not n0(fio1, d);
+	nand n1 (fio2, d, clk);
+	nand n2 (fio3, fio1, clk);
+	nand n3 (q, fio2, qbar);
+	nand n4 (qbar, fio3, q);
+	
+endmodule

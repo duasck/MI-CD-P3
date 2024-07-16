@@ -1,0 +1,4 @@
+Info (10281): Verilog HDL Declaration information at decod7seg.v(2): object "A" differs only in case from object "a" in the same scope File: C:/Users/edu00/Downloads/CD/MI-CD-TP02-GP2-PBL2-main/SistemadeIrrigacao/decod7seg.v Line: 2
+Info (10281): Verilog HDL Declaration information at decod7seg.v(3): object "B" differs only in case from object "b" in the same scope File: C:/Users/edu00/Downloads/CD/MI-CD-TP02-GP2-PBL2-main/SistemadeIrrigacao/decod7seg.v Line: 3
+Info (10281): Verilog HDL Declaration information at decod7seg.v(4): object "C" differs only in case from object "c" in the same scope File: C:/Users/edu00/Downloads/CD/MI-CD-TP02-GP2-PBL2-main/SistemadeIrrigacao/decod7seg.v Line: 4
+Info (10281): Verilog HDL Declaration information at decod7seg.v(5): object "D" differs only in case from object "d" in the same scope File: C:/Users/edu00/Downloads/CD/MI-CD-TP02-GP2-PBL2-main/SistemadeIrrigacao/decod7seg.v Line: 5

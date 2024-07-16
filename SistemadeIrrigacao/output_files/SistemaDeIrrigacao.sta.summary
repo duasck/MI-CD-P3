@@ -1,0 +1,29 @@
+------------------------------------------------------------
+Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Setup 'clk'
+Slack : -3.218
+TNS   : -13.676
+
+Type  : Setup 'contador_BCD_decrescente:contador_unidade|carry'
+Slack : -3.125
+TNS   : -13.122
+
+Type  : Hold 'clk'
+Slack : -2.042
+TNS   : -2.042
+
+Type  : Hold 'contador_BCD_decrescente:contador_unidade|carry'
+Slack : 1.952
+TNS   : 0.000
+
+Type  : Minimum Pulse Width 'clk'
+Slack : -2.289
+TNS   : -2.289
+
+Type  : Minimum Pulse Width 'contador_BCD_decrescente:contador_unidade|carry'
+Slack : 0.234
+TNS   : 0.000
+
+------------------------------------------------------------

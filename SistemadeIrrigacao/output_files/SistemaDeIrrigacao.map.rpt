@@ -1,0 +1,346 @@
+Analysis & Synthesis report for SistemaDeIrrigacao
+Tue Jul 16 00:04:39 2024
+Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. General Register Statistics
+  9. Inverted Register Statistics
+ 10. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 11. Analysis & Synthesis Messages
+ 12. Analysis & Synthesis Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2020  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++---------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                              ;
++-----------------------------+---------------------------------------------+
+; Analysis & Synthesis Status ; Successful - Tue Jul 16 00:04:39 2024       ;
+; Quartus Prime Version       ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
+; Revision Name               ; SistemaDeIrrigacao                          ;
+; Top-level Entity Name       ; contador_de_segundos                        ;
+; Family                      ; MAX II                                      ;
+; Total logic elements        ; 21                                          ;
+; Total pins                  ; 20                                          ;
+; Total virtual pins          ; 0                                           ;
+; UFM blocks                  ; 0 / 1 ( 0 % )                               ;
++-----------------------------+---------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                ;
++------------------------------------------------------------------+----------------------+--------------------+
+; Option                                                           ; Setting              ; Default Value      ;
++------------------------------------------------------------------+----------------------+--------------------+
+; Device                                                           ; EPM240T100C5         ;                    ;
+; Top-level entity name                                            ; contador_de_segundos ; SistemaDeIrrigacao ;
+; Family name                                                      ; MAX II               ; Cyclone V          ;
+; Use smart compilation                                            ; Off                  ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation ; On                   ; On                 ;
+; Enable compact report table                                      ; Off                  ; Off                ;
+; Restructure Multiplexers                                         ; Auto                 ; Auto               ;
+; Create Debugging Nodes for IP Cores                              ; Off                  ; Off                ;
+; Preserve fewer node names                                        ; On                   ; On                 ;
+; Intel FPGA IP Evaluation Mode                                    ; Enable               ; Enable             ;
+; Verilog Version                                                  ; Verilog_2001         ; Verilog_2001       ;
+; VHDL Version                                                     ; VHDL_1993            ; VHDL_1993          ;
+; State Machine Processing                                         ; Auto                 ; Auto               ;
+; Safe State Machine                                               ; Off                  ; Off                ;
+; Extract Verilog State Machines                                   ; On                   ; On                 ;
+; Extract VHDL State Machines                                      ; On                   ; On                 ;
+; Ignore Verilog initial constructs                                ; Off                  ; Off                ;
+; Iteration limit for constant Verilog loops                       ; 5000                 ; 5000               ;
+; Iteration limit for non-constant Verilog loops                   ; 250                  ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                          ; On                   ; On                 ;
+; Infer RAMs from Raw Logic                                        ; On                   ; On                 ;
+; Parallel Synthesis                                               ; On                   ; On                 ;
+; NOT Gate Push-Back                                               ; On                   ; On                 ;
+; Power-Up Don't Care                                              ; On                   ; On                 ;
+; Remove Redundant Logic Cells                                     ; Off                  ; Off                ;
+; Remove Duplicate Registers                                       ; On                   ; On                 ;
+; Ignore CARRY Buffers                                             ; Off                  ; Off                ;
+; Ignore CASCADE Buffers                                           ; Off                  ; Off                ;
+; Ignore GLOBAL Buffers                                            ; Off                  ; Off                ;
+; Ignore ROW GLOBAL Buffers                                        ; Off                  ; Off                ;
+; Ignore LCELL Buffers                                             ; Off                  ; Off                ;
+; Ignore SOFT Buffers                                              ; On                   ; On                 ;
+; Limit AHDL Integers to 32 Bits                                   ; Off                  ; Off                ;
+; Optimization Technique                                           ; Balanced             ; Balanced           ;
+; Carry Chain Length                                               ; 70                   ; 70                 ;
+; Auto Carry Chains                                                ; On                   ; On                 ;
+; Auto Open-Drain Pins                                             ; On                   ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                            ; Off                  ; Off                ;
+; Auto Shift Register Replacement                                  ; Auto                 ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                  ; Auto                 ; Auto               ;
+; Auto Clock Enable Replacement                                    ; On                   ; On                 ;
+; Allow Synchronous Control Signals                                ; On                   ; On                 ;
+; Force Use of Synchronous Clear Signals                           ; Off                  ; Off                ;
+; Auto Resource Sharing                                            ; Off                  ; Off                ;
+; Use LogicLock Constraints during Resource Balancing              ; On                   ; On                 ;
+; Ignore translate_off and synthesis_off directives                ; Off                  ; Off                ;
+; Report Parameter Settings                                        ; On                   ; On                 ;
+; Report Source Assignments                                        ; On                   ; On                 ;
+; Report Connectivity Checks                                       ; On                   ; On                 ;
+; Ignore Maximum Fan-Out Assignments                               ; Off                  ; Off                ;
+; Synchronization Register Chain Length                            ; 2                    ; 2                  ;
+; Power Optimization During Synthesis                              ; Normal compilation   ; Normal compilation ;
+; HDL message level                                                ; Level2               ; Level2             ;
+; Suppress Register Optimization Related Messages                  ; Off                  ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report         ; 5000                 ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report               ; 5000                 ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report        ; 100                  ; 100                ;
+; Clock MUX Protection                                             ; On                   ; On                 ;
+; Block Design Naming                                              ; Auto                 ; Auto               ;
+; Synthesis Effort                                                 ; Auto                 ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal     ; On                   ; On                 ;
+; Analysis & Synthesis Message Level                               ; Medium               ; Medium             ;
+; Disable Register Merging Across Hierarchies                      ; Auto                 ; Auto               ;
++------------------------------------------------------------------+----------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 16          ;
+; Maximum allowed            ; 16          ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 1           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
++----------------------------+-------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                     ;
++----------------------------------+-----------------+------------------------+----------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                                                                       ; Library ;
++----------------------------------+-----------------+------------------------+----------------------------------------------------------------------------------------------------+---------+
+; contador_BCD_decrescente.v       ; yes             ; User Verilog HDL File  ; C:/Users/edu00/Downloads/CD/MI-CD-TP02-GP2-PBL2-main/SistemadeIrrigacao/contador_BCD_decrescente.v ;         ;
+; contador_de_segundos.v           ; yes             ; User Verilog HDL File  ; C:/Users/edu00/Downloads/CD/MI-CD-TP02-GP2-PBL2-main/SistemadeIrrigacao/contador_de_segundos.v     ;         ;
++----------------------------------+-----------------+------------------------+----------------------------------------------------------------------------------------------------+---------+
+
+
++-----------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary         ;
++---------------------------------------------+-------+
+; Resource                                    ; Usage ;
++---------------------------------------------+-------+
+; Total logic elements                        ; 21    ;
+;     -- Combinational with no register       ; 9     ;
+;     -- Register only                        ; 0     ;
+;     -- Combinational with a register        ; 12    ;
+;                                             ;       ;
+; Logic element usage by number of LUT inputs ;       ;
+;     -- 4 input functions                    ; 8     ;
+;     -- 3 input functions                    ; 8     ;
+;     -- 2 input functions                    ; 3     ;
+;     -- 1 input functions                    ; 0     ;
+;     -- 0 input functions                    ; 2     ;
+;                                             ;       ;
+; Logic elements by mode                      ;       ;
+;     -- normal mode                          ; 21    ;
+;     -- arithmetic mode                      ; 0     ;
+;     -- qfbk mode                            ; 0     ;
+;     -- register cascade mode                ; 0     ;
+;     -- synchronous clear/load mode          ; 0     ;
+;     -- asynchronous clear/load mode         ; 12    ;
+;                                             ;       ;
+; Total registers                             ; 12    ;
+; I/O pins                                    ; 20    ;
+; Maximum fan-out node                        ; reset ;
+; Maximum fan-out                             ; 12    ;
+; Total fan-out                               ; 95    ;
+; Average fan-out                             ; 2.32  ;
++---------------------------------------------+-------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                             ;
++------------------------------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+-----------------------------------------------------------------+--------------------------+--------------+
+; Compilation Hierarchy Node                     ; Logic Cells ; LC Registers ; UFM Blocks ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Carry Chain LCs ; Packed LCs ; Full Hierarchy Name                                             ; Entity Name              ; Library Name ;
++------------------------------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+-----------------------------------------------------------------+--------------------------+--------------+
+; |contador_de_segundos                          ; 21 (1)      ; 12           ; 0          ; 20   ; 0            ; 9 (1)        ; 0 (0)             ; 12 (0)           ; 0 (0)           ; 0 (0)      ; |contador_de_segundos                                           ; contador_de_segundos     ; work         ;
+;    |contador_BCD_decrescente:contador_dezena|  ; 10 (10)     ; 6            ; 0          ; 0    ; 0            ; 4 (4)        ; 0 (0)             ; 6 (6)            ; 0 (0)           ; 0 (0)      ; |contador_de_segundos|contador_BCD_decrescente:contador_dezena  ; contador_BCD_decrescente ; work         ;
+;    |contador_BCD_decrescente:contador_unidade| ; 10 (10)     ; 6            ; 0          ; 0    ; 0            ; 4 (4)        ; 0 (0)             ; 6 (6)            ; 0 (0)           ; 0 (0)      ; |contador_de_segundos|contador_BCD_decrescente:contador_unidade ; contador_BCD_decrescente ; work         ;
++------------------------------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+-----------------------------------------------------------------+--------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 12    ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 12    ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++--------------------------------------------------------------+
+; Inverted Register Statistics                                 ;
++----------------------------------------------------+---------+
+; Inverted Register                                  ; Fan out ;
++----------------------------------------------------+---------+
+; contador_BCD_decrescente:contador_unidade|count[0] ; 6       ;
+; contador_BCD_decrescente:contador_unidade|count[3] ; 3       ;
+; contador_BCD_decrescente:contador_dezena|count[0]  ; 6       ;
+; contador_BCD_decrescente:contador_dezena|count[3]  ; 3       ;
+; contador_BCD_decrescente:contador_unidade|load     ; 5       ;
+; contador_BCD_decrescente:contador_dezena|load      ; 5       ;
+; Total number of inverted registers = 6             ;         ;
++----------------------------------------------------+---------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                         ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                               ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------+
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |contador_de_segundos|contador_BCD_decrescente:contador_unidade|count[1] ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |contador_de_segundos|contador_BCD_decrescente:contador_dezena|count[1]  ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |contador_de_segundos|contador_BCD_decrescente:contador_unidade|count[0] ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |contador_de_segundos|contador_BCD_decrescente:contador_dezena|count[0]  ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
+    Info: Processing started: Tue Jul 16 00:04:29 2024
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off SistemaDeIrrigacao -c SistemaDeIrrigacao
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file main.v
+    Info (12023): Found entity 1: main File: C:/Users/edu00/Downloads/CD/MI-CD-TP02-GP2-PBL2-main/SistemadeIrrigacao/main.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file sistemanivel.v
+    Info (12023): Found entity 1: sistemaNivel File: C:/Users/edu00/Downloads/CD/MI-CD-TP02-GP2-PBL2-main/SistemadeIrrigacao/sistemaNivel.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file sistemairrigacao.v
+    Info (12023): Found entity 1: sistemaIrrigacao File: C:/Users/edu00/Downloads/CD/MI-CD-TP02-GP2-PBL2-main/SistemadeIrrigacao/sistemaIrrigacao.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file decod7seg.v
+    Info (12023): Found entity 1: decod7seg File: C:/Users/edu00/Downloads/CD/MI-CD-TP02-GP2-PBL2-main/SistemadeIrrigacao/decod7seg.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file d_ff.v
+    Info (12023): Found entity 1: d_ff File: C:/Users/edu00/Downloads/CD/MI-CD-TP02-GP2-PBL2-main/SistemadeIrrigacao/d_ff.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file down_count.v
+    Info (12023): Found entity 1: down_count File: C:/Users/edu00/Downloads/CD/MI-CD-TP02-GP2-PBL2-main/SistemadeIrrigacao/down_count.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file jk_ff.v
+    Info (12023): Found entity 1: jk_ff File: C:/Users/edu00/Downloads/CD/MI-CD-TP02-GP2-PBL2-main/SistemadeIrrigacao/jk_ff.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file deslocamento_coluna_leds.v
+    Info (12023): Found entity 1: deslocamento_coluna_leds File: C:/Users/edu00/Downloads/CD/MI-CD-TP02-GP2-PBL2-main/SistemadeIrrigacao/deslocamento_coluna_leds.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file divisor7seg.v
+    Info (12023): Found entity 1: divisor7seg File: C:/Users/edu00/Downloads/CD/MI-CD-TP02-GP2-PBL2-main/SistemadeIrrigacao/divisor7seg.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file divisorleds.v
+    Info (12023): Found entity 1: divisorLeds File: C:/Users/edu00/Downloads/CD/MI-CD-TP02-GP2-PBL2-main/SistemadeIrrigacao/divisorLeds.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file mux2to1.v
+    Info (12023): Found entity 1: mux2to1 File: C:/Users/edu00/Downloads/CD/MI-CD-TP02-GP2-PBL2-main/SistemadeIrrigacao/mux2to1.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file binary_counter_2bit.v
+    Info (12023): Found entity 1: binary_counter_2bit File: C:/Users/edu00/Downloads/CD/MI-CD-TP02-GP2-PBL2-main/SistemadeIrrigacao/binary_counter_2bit.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file matriz7seg.v
+    Info (12023): Found entity 1: matriz7seg File: C:/Users/edu00/Downloads/CD/MI-CD-TP02-GP2-PBL2-main/SistemadeIrrigacao/matriz7seg.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file mux_4x1.v
+    Info (12023): Found entity 1: mux_4x1 File: C:/Users/edu00/Downloads/CD/MI-CD-TP02-GP2-PBL2-main/SistemadeIrrigacao/mux_4x1.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file mux_4x1bit.v
+    Info (12023): Found entity 1: mux_4x1bit File: C:/Users/edu00/Downloads/CD/MI-CD-TP02-GP2-PBL2-main/SistemadeIrrigacao/mux_4x1bit.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file leveltopulsemealy.v
+    Info (12023): Found entity 1: LevelToPulseMealy File: C:/Users/edu00/Downloads/CD/MI-CD-TP02-GP2-PBL2-main/SistemadeIrrigacao/LevelToPulseMealy.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file bcd_counter.v
+    Info (12023): Found entity 1: bcd_counter File: C:/Users/edu00/Downloads/CD/MI-CD-TP02-GP2-PBL2-main/SistemadeIrrigacao/bcd_counter.v Line: 1
+Info (12021): Found 0 design units, including 0 entities, in source file mef.v
+Info (12021): Found 1 design units, including 1 entities, in source file contador_bcd_decrescente.v
+    Info (12023): Found entity 1: contador_BCD_decrescente File: C:/Users/edu00/Downloads/CD/MI-CD-TP02-GP2-PBL2-main/SistemadeIrrigacao/contador_BCD_decrescente.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file contador_de_segundos.v
+    Info (12023): Found entity 1: contador_de_segundos File: C:/Users/edu00/Downloads/CD/MI-CD-TP02-GP2-PBL2-main/SistemadeIrrigacao/contador_de_segundos.v Line: 1
+Warning (10236): Verilog HDL Implicit Net warning at main.v(77): created implicit net for "uniMin" File: C:/Users/edu00/Downloads/CD/MI-CD-TP02-GP2-PBL2-main/SistemadeIrrigacao/main.v Line: 77
+Warning (10236): Verilog HDL Implicit Net warning at main.v(77): created implicit net for "dezMin" File: C:/Users/edu00/Downloads/CD/MI-CD-TP02-GP2-PBL2-main/SistemadeIrrigacao/main.v Line: 77
+Warning (10236): Verilog HDL Implicit Net warning at down_count.v(18): created implicit net for "n0" File: C:/Users/edu00/Downloads/CD/MI-CD-TP02-GP2-PBL2-main/SistemadeIrrigacao/down_count.v Line: 18
+Warning (10236): Verilog HDL Implicit Net warning at down_count.v(19): created implicit net for "n1" File: C:/Users/edu00/Downloads/CD/MI-CD-TP02-GP2-PBL2-main/SistemadeIrrigacao/down_count.v Line: 19
+Warning (10236): Verilog HDL Implicit Net warning at down_count.v(20): created implicit net for "n2" File: C:/Users/edu00/Downloads/CD/MI-CD-TP02-GP2-PBL2-main/SistemadeIrrigacao/down_count.v Line: 20
+Warning (10236): Verilog HDL Implicit Net warning at down_count.v(21): created implicit net for "n4" File: C:/Users/edu00/Downloads/CD/MI-CD-TP02-GP2-PBL2-main/SistemadeIrrigacao/down_count.v Line: 21
+Warning (10236): Verilog HDL Implicit Net warning at down_count.v(24): created implicit net for "a0" File: C:/Users/edu00/Downloads/CD/MI-CD-TP02-GP2-PBL2-main/SistemadeIrrigacao/down_count.v Line: 24
+Warning (10236): Verilog HDL Implicit Net warning at down_count.v(25): created implicit net for "a1" File: C:/Users/edu00/Downloads/CD/MI-CD-TP02-GP2-PBL2-main/SistemadeIrrigacao/down_count.v Line: 25
+Warning (10236): Verilog HDL Implicit Net warning at down_count.v(26): created implicit net for "a2" File: C:/Users/edu00/Downloads/CD/MI-CD-TP02-GP2-PBL2-main/SistemadeIrrigacao/down_count.v Line: 26
+Warning (10236): Verilog HDL Implicit Net warning at down_count.v(27): created implicit net for "a3" File: C:/Users/edu00/Downloads/CD/MI-CD-TP02-GP2-PBL2-main/SistemadeIrrigacao/down_count.v Line: 27
+Warning (10236): Verilog HDL Implicit Net warning at down_count.v(28): created implicit net for "a4" File: C:/Users/edu00/Downloads/CD/MI-CD-TP02-GP2-PBL2-main/SistemadeIrrigacao/down_count.v Line: 28
+Warning (10236): Verilog HDL Implicit Net warning at down_count.v(29): created implicit net for "a5" File: C:/Users/edu00/Downloads/CD/MI-CD-TP02-GP2-PBL2-main/SistemadeIrrigacao/down_count.v Line: 29
+Warning (10236): Verilog HDL Implicit Net warning at down_count.v(30): created implicit net for "a6" File: C:/Users/edu00/Downloads/CD/MI-CD-TP02-GP2-PBL2-main/SistemadeIrrigacao/down_count.v Line: 30
+Warning (10236): Verilog HDL Implicit Net warning at down_count.v(31): created implicit net for "a7" File: C:/Users/edu00/Downloads/CD/MI-CD-TP02-GP2-PBL2-main/SistemadeIrrigacao/down_count.v Line: 31
+Warning (10236): Verilog HDL Implicit Net warning at down_count.v(32): created implicit net for "a8" File: C:/Users/edu00/Downloads/CD/MI-CD-TP02-GP2-PBL2-main/SistemadeIrrigacao/down_count.v Line: 32
+Warning (10236): Verilog HDL Implicit Net warning at down_count.v(33): created implicit net for "a9" File: C:/Users/edu00/Downloads/CD/MI-CD-TP02-GP2-PBL2-main/SistemadeIrrigacao/down_count.v Line: 33
+Warning (10236): Verilog HDL Implicit Net warning at down_count.v(36): created implicit net for "na0" File: C:/Users/edu00/Downloads/CD/MI-CD-TP02-GP2-PBL2-main/SistemadeIrrigacao/down_count.v Line: 36
+Warning (10236): Verilog HDL Implicit Net warning at down_count.v(37): created implicit net for "na1" File: C:/Users/edu00/Downloads/CD/MI-CD-TP02-GP2-PBL2-main/SistemadeIrrigacao/down_count.v Line: 37
+Warning (10236): Verilog HDL Implicit Net warning at down_count.v(38): created implicit net for "na2" File: C:/Users/edu00/Downloads/CD/MI-CD-TP02-GP2-PBL2-main/SistemadeIrrigacao/down_count.v Line: 38
+Warning (10236): Verilog HDL Implicit Net warning at down_count.v(39): created implicit net for "na3" File: C:/Users/edu00/Downloads/CD/MI-CD-TP02-GP2-PBL2-main/SistemadeIrrigacao/down_count.v Line: 39
+Warning (10236): Verilog HDL Implicit Net warning at down_count.v(40): created implicit net for "na4" File: C:/Users/edu00/Downloads/CD/MI-CD-TP02-GP2-PBL2-main/SistemadeIrrigacao/down_count.v Line: 40
+Warning (10236): Verilog HDL Implicit Net warning at down_count.v(41): created implicit net for "na5" File: C:/Users/edu00/Downloads/CD/MI-CD-TP02-GP2-PBL2-main/SistemadeIrrigacao/down_count.v Line: 41
+Warning (10236): Verilog HDL Implicit Net warning at down_count.v(42): created implicit net for "na6" File: C:/Users/edu00/Downloads/CD/MI-CD-TP02-GP2-PBL2-main/SistemadeIrrigacao/down_count.v Line: 42
+Warning (10236): Verilog HDL Implicit Net warning at down_count.v(43): created implicit net for "na7" File: C:/Users/edu00/Downloads/CD/MI-CD-TP02-GP2-PBL2-main/SistemadeIrrigacao/down_count.v Line: 43
+Warning (10236): Verilog HDL Implicit Net warning at down_count.v(44): created implicit net for "na8" File: C:/Users/edu00/Downloads/CD/MI-CD-TP02-GP2-PBL2-main/SistemadeIrrigacao/down_count.v Line: 44
+Warning (10236): Verilog HDL Implicit Net warning at down_count.v(44): created implicit net for "o0" File: C:/Users/edu00/Downloads/CD/MI-CD-TP02-GP2-PBL2-main/SistemadeIrrigacao/down_count.v Line: 44
+Warning (10236): Verilog HDL Implicit Net warning at down_count.v(48): created implicit net for "o1" File: C:/Users/edu00/Downloads/CD/MI-CD-TP02-GP2-PBL2-main/SistemadeIrrigacao/down_count.v Line: 48
+Warning (10236): Verilog HDL Implicit Net warning at down_count.v(49): created implicit net for "o2" File: C:/Users/edu00/Downloads/CD/MI-CD-TP02-GP2-PBL2-main/SistemadeIrrigacao/down_count.v Line: 49
+Warning (10236): Verilog HDL Implicit Net warning at down_count.v(50): created implicit net for "o3" File: C:/Users/edu00/Downloads/CD/MI-CD-TP02-GP2-PBL2-main/SistemadeIrrigacao/down_count.v Line: 50
+Critical Warning (10846): Verilog HDL Instantiation warning at main.v(45): instance has no name File: C:/Users/edu00/Downloads/CD/MI-CD-TP02-GP2-PBL2-main/SistemadeIrrigacao/main.v Line: 45
+Info (12127): Elaborating entity "contador_de_segundos" for the top level hierarchy
+Info (12128): Elaborating entity "contador_BCD_decrescente" for hierarchy "contador_BCD_decrescente:contador_unidade" File: C:/Users/edu00/Downloads/CD/MI-CD-TP02-GP2-PBL2-main/SistemadeIrrigacao/contador_de_segundos.v Line: 21
+Warning (10230): Verilog HDL assignment warning at contador_BCD_decrescente.v(27): truncated value with size 32 to match size of target (4) File: C:/Users/edu00/Downloads/CD/MI-CD-TP02-GP2-PBL2-main/SistemadeIrrigacao/contador_BCD_decrescente.v Line: 27
+Info (18000): Registers with preset signals will power-up high File: C:/Users/edu00/Downloads/CD/MI-CD-TP02-GP2-PBL2-main/SistemadeIrrigacao/contador_BCD_decrescente.v Line: 18
+Warning (21074): Design contains 1 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "load" File: C:/Users/edu00/Downloads/CD/MI-CD-TP02-GP2-PBL2-main/SistemadeIrrigacao/contador_de_segundos.v Line: 6
+Info (21057): Implemented 41 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 11 input pins
+    Info (21059): Implemented 9 output pins
+    Info (21061): Implemented 21 logic cells
+Info (144001): Generated suppressed messages file C:/Users/edu00/Downloads/CD/MI-CD-TP02-GP2-PBL2-main/SistemadeIrrigacao/output_files/SistemaDeIrrigacao.map.smsg
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 34 warnings
+    Info: Peak virtual memory: 4702 megabytes
+    Info: Processing ended: Tue Jul 16 00:04:39 2024
+    Info: Elapsed time: 00:00:10
+    Info: Total CPU time (on all processors): 00:00:29
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in C:/Users/edu00/Downloads/CD/MI-CD-TP02-GP2-PBL2-main/SistemadeIrrigacao/output_files/SistemaDeIrrigacao.map.smsg.
+
+

@@ -1,0 +1,11 @@
+Fitter Status : Successful - Tue Jul 16 00:04:42 2024
+Quartus Prime Version : 20.1.0 Build 711 06/05/2020 SJ Lite Edition
+Revision Name : SistemaDeIrrigacao
+Top-level Entity Name : contador_de_segundos
+Family : MAX II
+Device : EPM240T100C5
+Timing Models : Final
+Total logic elements : 21 / 240 ( 9 % )
+Total pins : 20 / 80 ( 25 % )
+Total virtual pins : 0
+UFM blocks : 0 / 1 ( 0 % )
