@@ -1,3 +1,3 @@
 ## PBL da disciplina Circuitos Digitais
-Alunos: Luís, Daniel, Kauã.
-### Parte 2.
+Alunos: Luís, Gabriel Sena.
+### Parte 3.5.
