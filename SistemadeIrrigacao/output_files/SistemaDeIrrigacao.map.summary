@@ -1,9 +1,9 @@
-Analysis & Synthesis Status : Successful - Tue Jul 16 00:04:39 2024
+Analysis & Synthesis Status : Successful - Tue Jul 16 01:33:43 2024
 Quartus Prime Version : 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 Revision Name : SistemaDeIrrigacao
-Top-level Entity Name : contador_de_segundos
+Top-level Entity Name : main
 Family : MAX II
-Total logic elements : 21
-Total pins : 20
+Total logic elements : 116
+Total pins : 37
 Total virtual pins : 0
 UFM blocks : 0 / 1 ( 0 % )

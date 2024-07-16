@@ -1,0 +1,9 @@
+
+State Machine - |main|MEF:maquinaEstado|current_state
+Name current_state.ESTADO_ERRO current_state.ESTADO_LIMPEZA current_state.ESTADO_ASPERSAO current_state.ESTADO_GOTEJANDO current_state.ESTADO_CHEIO current_state.ESTADO_ENCHENDO 
+current_state.ESTADO_ENCHENDO 0 0 0 0 0 0 
+current_state.ESTADO_CHEIO 0 0 0 0 1 1 
+current_state.ESTADO_GOTEJANDO 0 0 0 1 0 1 
+current_state.ESTADO_ASPERSAO 0 0 1 0 0 1 
+current_state.ESTADO_LIMPEZA 0 1 0 0 0 1 
+current_state.ESTADO_ERRO 1 0 0 0 0 1 

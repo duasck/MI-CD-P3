@@ -6,13 +6,12 @@ module main(
 	 input Us,				 //Umidade do Solo
 	 input T,				 //Temperatura
 	 input switch,		    //Chave de seleção
+	 input r,		       //reset manual
+	 input agro,		    //agrodefenssivo 
 	 input clk, 			 //Sinal de clock
-	 input r,
     output Erro, 			 //Sinal de erro
 	 output Alarme, 		 //Alarme
 	 output Ve, 			 //Válvula de entrada
-	 output Bs, 			 //Válvula de aspersão
-	 output Vs, 			 //Válvulade Gotejamento
 	 output a, 				 
 	 output b, 				 
 	 output c, 				 
@@ -25,20 +24,31 @@ module main(
 	 output d03,
 	 output d04,
     output [4:0] coluna, //Saída das colunas da matriz de LEDs
-    output [6:0] linha	 //Saída das linhas da matriz de LEDs
+    output [6:0] linha,	 //Saída das linhas da matriz de LEDs
+	 output agroOut
 );
 	
-	wire clk7seg, clkLeds, V, H, M, L;
+	// rever os pinos
+	
+	wire clk7seg, clkLeds, V, H, M, L, Bs, Vs;
 		
 	// Instancia do módulo de irrigação
 	sistemaIrrigacao irrigacao_inst (.H(H), .M(M), .L(L), .Ua(Ua), 
 	.Us(Us), .T(T), .Vs(Vs), .Bs(Bs)
 	);
 	
-	 // Instancia do módulo de nivel
-    sistemaNivel nivel_inst (.H(HH), .M(MM), .L(LL), .Cheio(H), .Medio(M), 
-	 .Baixo(L), .Vazio(V), .Erro(Erro), .Alarme(Alarme), .Ve(Ve)
-	 );
+	// Instancia do módulo de nivel
+   sistemaNivel nivel_inst (.H(HH), .M(MM), .L(LL), .Cheio(H), .Medio(M), 
+	.Baixo(L), .Vazio(V), .Erro(Erro), .Alarme(), .Ve()
+	);
+	 
+	
+	//agrodefenssivo 
+	assign agroOut = agro & (~estado_atual[2]) & estado_atual[1] & estado_atual[0]; // luz verde
+	//valvula de entrada
+	assign Ve = (~estado_atual[2]) & (~estado_atual[1]) & (~estado_atual[0]); // luz azul
+	//assign Alarme = (estado_atual[2]) & (~estado_atual[1]) & (estado_atual[0]); // buzzer 
+	assign Erro = (estado_atual[2]) & (~estado_atual[1]) & (estado_atual[0]); // luz vermelha
 	
 	// Divisores de clock
 	divisorLeds divisor(.clk(clk), .clkLeds(clkLeds));

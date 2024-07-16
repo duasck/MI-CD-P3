@@ -59,7 +59,7 @@ set_location_assignment PIN_86 -to Erro
 set_location_assignment PIN_42 -to Ua
 set_location_assignment PIN_40 -to T
 set_location_assignment PIN_30 -to Us
-set_location_assignment PIN_54 -to Ve
+set_location_assignment PIN_74 -to Ve
 set_location_assignment PIN_33 -to switch
 set_location_assignment PIN_90 -to a
 set_location_assignment PIN_70 -to b
@@ -67,7 +67,6 @@ set_location_assignment PIN_41 -to c
 set_location_assignment PIN_100 -to e
 set_location_assignment PIN_92 -to f
 set_location_assignment PIN_39 -to g
-set_location_assignment PIN_52 -to reiniciar
 set_location_assignment PIN_12 -to clk
 set_global_assignment -name VERILOG_FILE main.v
 set_global_assignment -name VERILOG_FILE sistemaNivel.v
@@ -102,10 +101,10 @@ set_location_assignment PIN_98 -to d
 set_location_assignment PIN_38 -to HH
 set_location_assignment PIN_34 -to LL
 set_location_assignment PIN_36 -to MM
-set_location_assignment PIN_35 -to start
 set_location_assignment PIN_55 -to saida
 set_global_assignment -name VERILOG_FILE LevelToPulseMealy.v
 set_global_assignment -name VERILOG_FILE MEF.v
 set_global_assignment -name VERILOG_FILE contador_BCD_decrescente.v
 set_global_assignment -name VERILOG_FILE contador_de_segundos.v
 set_global_assignment -name VERILOG_FILE mux_estado.v
+set_location_assignment PIN_72 -to agroOut
