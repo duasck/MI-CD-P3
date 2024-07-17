@@ -25,40 +25,43 @@ module main(
 	 output d04,
     output [4:0] coluna, //Saída das colunas da matriz de LEDs
     output [6:0] linha,	 //Saída das linhas da matriz de LEDs
+	 output LimpezaLed,
 	 output agroOut
 );
 	
-	// rever os pinos
+	//LevelToPulseMealy b0 (.clk(clk), .data_in(agro), .reset(r), .data_out(agro));
 	
+	// rever os pinos
 	wire clk7seg, clkLeds, V, H, M, L, Bs, Vs;
 		
 	// Instancia do módulo de irrigação
 	sistemaIrrigacao irrigacao_inst (.H(H), .M(M), .L(L), .Ua(Ua), 
-	.Us(Us), .T(T), .Vs(Vs), .Bs(Bs)
-	);
+	.Us(Us), .T(T), .Vs(Vs), .Bs(Bs));
 	
 	// Instancia do módulo de nivel
    sistemaNivel nivel_inst (.H(HH), .M(MM), .L(LL), .Cheio(H), .Medio(M), 
-	.Baixo(L), .Vazio(V), .Erro(Erro), .Alarme(), .Ve()
-	);
+	.Baixo(L), .Vazio(V), .Erro(Erro), .Alarme(), .Ve());
 	 
-	
 	//agrodefenssivo 
-	assign agroOut = agro & (~estado_atual[2]) & estado_atual[1] & estado_atual[0]; // luz verde
+	assign agroOut = (agro && (!estado_atual[2]) && estado_atual[1] && estado_atual[0]); // luz verde
 	//valvula de entrada
-	assign Ve = (~estado_atual[2]) & (~estado_atual[1]) & (~estado_atual[0]); // luz azul
-	//assign Alarme = (estado_atual[2]) & (~estado_atual[1]) & (estado_atual[0]); // buzzer 
-	assign Erro = (estado_atual[2]) & (~estado_atual[1]) & (estado_atual[0]); // luz vermelha
+	assign LimpezaLed = (estado_atual[2]) && (!estado_atual[1]) && (!estado_atual[0]); // luz azul
+	//assign Alarme = (estado_atual[2]) & (!estado_atual[1]) & (estado_atual[0]); // buzzer 
+	//assign Erro = (estado_atual[2]) & (!estado_atual[1]) & (estado_atual[0]); // luz vermelha
 	
 	// Divisores de clock
 	divisorLeds divisor(.clk(clk), .clkLeds(clkLeds));
 	divisor7seg(.clk(clkLeds), .clk7seg(clk7seg));
 	// Deslocamento da coluna dos LEDs
 	
+	
+	wire countLi;
 	wire [2:0] estado_atual;
 	
+	assign countLi = count && estado_atual[2] && !estado_atual[1] && !estado_atual[0];
+	
 	//instancia da maquina de estados
-	MEF maquinaEstado (.clk(clk), .reset(r), .cheio(H), .gotejamento(Vs), .aspersao(Bs), .erro_nivel(Erro), .state(estado_atual), .enchendo_saida(), .cheio_saida(), 
+	MEF maquinaEstado (.clk(clk), .reset(r), .cheio(H), .gotejamento(Vs), .aspersao(Bs), .erro_nivel(Erro), .countLi(countLi), .state(estado_atual), .enchendo_saida(), .cheio_saida(), 
 	.gotejamento_saida(), .aspersao_saida(), .limpeza_saida(), .erro_saida());
 	 
 	wire [6:0] d1, d2;
@@ -68,9 +71,9 @@ module main(
 	
 	wire res;
 	
-	assign res = (r ||  ((estado_atual[2]) & (~estado_atual[1]) & (estado_atual[0])) || ((~estado_atual[2]) & (~estado_atual[1]) & (estado_atual[0])));
+	assign res = r || ((!estado_atual[2]) && (!estado_atual[1]) && (!estado_atual[0])) && ((!estado_atual[2]) && (!estado_atual[1]) && (!estado_atual[0]));
 	//modulo para unidades e dezenas
-	contador_de_segundos unidades (.clk(clk7seg), .reset(res), .uni_segundos_in(uniSegIn), .dez_segundos_in(dezSegIn), .uni_segundos(uniSeg), .dez_segundos(dezSeg));
+	contador_de_segundos unidades (.clk(clk7seg), .reset(res), .uni_segundos_in(uniSegIn), .dez_segundos_in(dezSegIn), .timeout(count), .uni_segundos(uniSeg), .dez_segundos(dezSeg));
 	
 	//Unidade de segundo
 	decod7seg dec0 (.A(uniSeg[3]), .B(uniSeg[2]), .C(uniSeg[1]), .D(uniSeg[0]), .a(d1[6]), .b(d1[5]), .c(d1[4]),
@@ -94,44 +97,44 @@ module main(
 	//Mux 4x1 1bit para selecionar a matriz
    mux_4x1bit mux (.SEL(select), .out(select_dig));
 
-   assign d01 = ~select_dig[3];
-   assign d02 = ~select_dig[2];
-   assign d03 = ~select_dig[1];
-   assign d04 = ~select_dig[0];
+   assign d01 = !select_dig[3];
+   assign d02 = !select_dig[2];
+   assign d03 = 1;
+   assign d04 = 1;
 	
-	assign a = (~out7seg[6]);
-	assign b = (~out7seg[5]);
-	assign c = (~out7seg[4]);
-	assign d = (~out7seg[3]);
-	assign e = (~out7seg[2]);
-	assign f = (~out7seg[1]);
-	assign g = (~out7seg[0]);
+	assign a = (!out7seg[6]);
+	assign b = (!out7seg[5]);
+	assign c = (!out7seg[4]);
+	assign d = (!out7seg[3]);
+	assign e = (!out7seg[2]);
+	assign f = (!out7seg[1]);
+	assign g = (!out7seg[0]);
 	
 	// parte matriz de led
 	deslocamento_coluna_leds dc(.clk(clkLeds), .coluna(coluna));
 	
 	// Atribuição dos valores para as linhas da matriz de LEDs
-	assign linha[0] = ~(((switch) && ((M && (coluna[2])) || (V && (coluna[1] || coluna[2] || coluna[3]))))
-	|| ((~switch) && (Bs || Vs) && (coluna[2] || coluna[3])));
+	assign linha[0] = !(((switch) && ((M && (coluna[2])) || (V && (coluna[1] || coluna[2] || coluna[3]))))
+	|| ((!switch) && (Bs || Vs) && (coluna[2] || coluna[3])));
 	
 	assign linha[1] = !(((switch) && ((L && coluna[1]) || (H && (coluna[1] || coluna[4])) || (V && coluna[1])))
-	|| ((~switch) && (Bs || Vs) && (coluna[1] || coluna[4])));
+	|| ((!switch) && (Bs || Vs) && (coluna[1] || coluna[4])));
 	
 	assign linha[2] = !(((switch) && ((L && coluna[1]) || (M && coluna[2]) || (H && (coluna[1] || coluna[4])) 
-	|| (V && coluna[1])) || ((~switch) && ((Bs && (coluna[1] || coluna[4]) || (Vs && coluna[1]))))));
+	|| (V && coluna[1])) || ((!switch) && ((Bs && (coluna[1] || coluna[4]) || (Vs && coluna[1]))))));
 	
 	assign linha[3] = !(((switch) && ((L && coluna[1]) || (M && coluna[2]) || (H && (coluna[1] || coluna[2] 
-	|| coluna[3] || coluna[4])) || (V && (coluna[1] || coluna[2])))) || ((~switch) && (Bs && (coluna[1] || coluna[2] 
+	|| coluna[3] || coluna[4])) || (V && (coluna[1] || coluna[2])))) || ((!switch) && (Bs && (coluna[1] || coluna[2] 
 	|| coluna[3] || coluna[4]) || (Vs && (coluna[1] || coluna[3] || coluna[4])))));
 	
 	assign linha[4] = !(((switch) && ((L && coluna[1]) || (M && coluna[2]) || (H && (coluna[1] || coluna[4])) 
-	|| (V && coluna[1]))) || ((~switch) && (Bs || Vs) && (coluna[1] || coluna[4])));
+	|| (V && coluna[1]))) || ((!switch) && (Bs || Vs) && (coluna[1] || coluna[4])));
 	
 	assign linha[5] = !(((switch) && ((L && coluna[1]) || (M && coluna[2]) || (H && (coluna[1] || coluna[4])) 
-	|| (V && coluna[1]))) || ((~switch) && (Bs || Vs) && (coluna[1] || coluna[4])));
+	|| (V && coluna[1]))) || ((!switch) && (Bs || Vs) && (coluna[1] || coluna[4])));
 	
 	assign linha[6] = !(((switch) && ((L && (coluna[1] || coluna[2] || coluna[3])) || (M && coluna[2]) 
 	|| (H && (coluna[1] || coluna[4])) || (V && (coluna[1] || coluna[2] || coluna[3])))) 
-	|| ((~switch) && ((Bs && (coluna[1] || coluna[4]))|| (Vs && (coluna[2] || coluna[3])))));
+	|| ((!switch) && ((Bs && (coluna[1] || coluna[4]))|| (Vs && (coluna[2] || coluna[3])))));
 	
 endmodule

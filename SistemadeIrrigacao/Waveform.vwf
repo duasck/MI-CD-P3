@@ -1,16 +1,16 @@
 /*<simulation_settings>
-<ftestbench_cmd>quartus_eda --gen_testbench --tool=modelsim_oem --format=verilog --write_settings_files=off SistemaDeIrrigacao -c SistemaDeIrrigacao --vector_source="C:/Users/edu00/Downloads/CD/MI-CD-TP02-GP2-PBL2-main/SistemadeIrrigacao/Waveform.vwf" --testbench_file="C:/Users/edu00/Downloads/CD/MI-CD-TP02-GP2-PBL2-main/SistemadeIrrigacao/simulation/qsim/Waveform.vwf.vt"</ftestbench_cmd>
-<ttestbench_cmd>quartus_eda --gen_testbench --tool=modelsim_oem --format=verilog --write_settings_files=off SistemaDeIrrigacao -c SistemaDeIrrigacao --vector_source="C:/Users/edu00/Downloads/CD/MI-CD-TP02-GP2-PBL2-main/SistemadeIrrigacao/Waveform.vwf" --testbench_file="C:/Users/edu00/Downloads/CD/MI-CD-TP02-GP2-PBL2-main/SistemadeIrrigacao/simulation/qsim/Waveform.vwf.vt"</ttestbench_cmd>
-<fnetlist_cmd>quartus_eda --write_settings_files=off --simulation --functional=on --flatten_buses=off --tool=modelsim_oem --format=verilog --output_directory="C:/Users/edu00/Downloads/CD/MI-CD-TP02-GP2-PBL2-main/SistemadeIrrigacao/simulation/qsim/" SistemaDeIrrigacao -c SistemaDeIrrigacao</fnetlist_cmd>
-<tnetlist_cmd>quartus_eda --write_settings_files=off --simulation --functional=off --flatten_buses=off --timescale=1ps --tool=modelsim_oem --format=verilog --output_directory="C:/Users/edu00/Downloads/CD/MI-CD-TP02-GP2-PBL2-main/SistemadeIrrigacao/simulation/qsim/" SistemaDeIrrigacao -c SistemaDeIrrigacao</tnetlist_cmd>
+<ftestbench_cmd>quartus_eda --gen_testbench --tool=modelsim_oem --format=verilog --write_settings_files=off SistemaDeIrrigacao -c SistemaDeIrrigacao --vector_source="/home/aluno/Downloads/MI-CD-P3-main/SistemadeIrrigacao/Waveform.vwf" --testbench_file="/home/aluno/Downloads/MI-CD-P3-main/SistemadeIrrigacao/simulation/qsim/Waveform.vwf.vt"</ftestbench_cmd>
+<ttestbench_cmd>quartus_eda --gen_testbench --tool=modelsim_oem --format=verilog --write_settings_files=off SistemaDeIrrigacao -c SistemaDeIrrigacao --vector_source="/home/aluno/Downloads/MI-CD-P3-main/SistemadeIrrigacao/Waveform.vwf" --testbench_file="/home/aluno/Downloads/MI-CD-P3-main/SistemadeIrrigacao/simulation/qsim/Waveform.vwf.vt"</ttestbench_cmd>
+<fnetlist_cmd>quartus_eda --write_settings_files=off --simulation --functional=on --flatten_buses=off --tool=modelsim_oem --format=verilog --output_directory="/home/aluno/Downloads/MI-CD-P3-main/SistemadeIrrigacao/simulation/qsim/" SistemaDeIrrigacao -c SistemaDeIrrigacao</fnetlist_cmd>
+<tnetlist_cmd>quartus_eda --write_settings_files=off --simulation --functional=off --flatten_buses=off --timescale=1ps --tool=modelsim_oem --format=verilog --output_directory="/home/aluno/Downloads/MI-CD-P3-main/SistemadeIrrigacao/simulation/qsim/" SistemaDeIrrigacao -c SistemaDeIrrigacao</tnetlist_cmd>
 <modelsim_script>onerror {exit -code 1}
 vlib work
 vlog -work work SistemaDeIrrigacao.vo
 vlog -work work Waveform.vwf.vt
-vsim  -c -t 1ps -L maxii_ver -L altera_ver -L altera_mf_ver -L 220model_ver -L sgate_ver -L altera_lnsim_ver work.contador_de_segundos_vlg_vec_tst
+vsim -c -t 1ps -L maxii_ver -L altera_ver -L altera_mf_ver -L 220model_ver -L sgate_ver -L altera_lnsim_ver work.MEF_vlg_vec_tst
 vcd file -direction SistemaDeIrrigacao.msim.vcd
-vcd add -internal contador_de_segundos_vlg_vec_tst/*
-vcd add -internal contador_de_segundos_vlg_vec_tst/i1/*
+vcd add -internal MEF_vlg_vec_tst/*
+vcd add -internal MEF_vlg_vec_tst/i1/*
 proc simTimestamp {} {
     echo "Simulation time: $::now ps"
     if { [string equal running [runStatus]] } {
@@ -20,15 +20,16 @@ proc simTimestamp {} {
 after 2500 simTimestamp
 run -all
 quit -f
+
 </modelsim_script>
 <modelsim_script_timing>onerror {exit -code 1}
 vlib work
 vlog -work work SistemaDeIrrigacao.vo
 vlog -work work Waveform.vwf.vt
-vsim -novopt -c -t 1ps -L maxii_ver -L altera_ver -L altera_mf_ver -L 220model_ver -L sgate_ver -L altera_lnsim_ver work.contador_de_segundos_vlg_vec_tst
+vsim -novopt -c -t 1ps -L maxii_ver -L altera_ver -L altera_mf_ver -L 220model_ver -L sgate_ver -L altera_lnsim_ver work.MEF_vlg_vec_tst
 vcd file -direction SistemaDeIrrigacao.msim.vcd
-vcd add -internal contador_de_segundos_vlg_vec_tst/*
-vcd add -internal contador_de_segundos_vlg_vec_tst/i1/*
+vcd add -internal MEF_vlg_vec_tst/*
+vcd add -internal MEF_vlg_vec_tst/i1/*
 proc simTimestamp {} {
     echo "Simulation time: $::now ps"
     if { [string equal running [runStatus]] } {
@@ -38,6 +39,7 @@ proc simTimestamp {} {
 after 2500 simTimestamp
 run -all
 quit -f
+
 </modelsim_script_timing>
 <hdl_lang>verilog</hdl_lang>
 </simulation_settings>*/
@@ -76,6 +78,46 @@ HEADER
 	GRID_DUTY_CYCLE = 50;
 }
 
+SIGNAL("aspersao")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = INPUT;
+	PARENT = "";
+}
+
+SIGNAL("aspersao_saida")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "";
+}
+
+SIGNAL("cheio")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = INPUT;
+	PARENT = "";
+}
+
+SIGNAL("cheio_saida")
+{
+	VALUE_TYPE = NINE_LEVEL_BIT;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
+	DIRECTION = OUTPUT;
+	PARENT = "";
+}
+
 SIGNAL("clk")
 {
 	VALUE_TYPE = NINE_LEVEL_BIT;
@@ -86,104 +128,64 @@ SIGNAL("clk")
 	PARENT = "";
 }
 
-SIGNAL("dez_segundos")
+SIGNAL("enchendo_saida")
 {
 	VALUE_TYPE = NINE_LEVEL_BIT;
-	SIGNAL_TYPE = BUS;
-	WIDTH = 4;
-	LSB_INDEX = 0;
+	SIGNAL_TYPE = SINGLE_BIT;
+	WIDTH = 1;
+	LSB_INDEX = -1;
 	DIRECTION = OUTPUT;
 	PARENT = "";
 }
 
-SIGNAL("dez_segundos[3]")
+SIGNAL("erro_nivel")
 {
 	VALUE_TYPE = NINE_LEVEL_BIT;
 	SIGNAL_TYPE = SINGLE_BIT;
 	WIDTH = 1;
 	LSB_INDEX = -1;
-	DIRECTION = OUTPUT;
-	PARENT = "dez_segundos";
-}
-
-SIGNAL("dez_segundos[2]")
-{
-	VALUE_TYPE = NINE_LEVEL_BIT;
-	SIGNAL_TYPE = SINGLE_BIT;
-	WIDTH = 1;
-	LSB_INDEX = -1;
-	DIRECTION = OUTPUT;
-	PARENT = "dez_segundos";
-}
-
-SIGNAL("dez_segundos[1]")
-{
-	VALUE_TYPE = NINE_LEVEL_BIT;
-	SIGNAL_TYPE = SINGLE_BIT;
-	WIDTH = 1;
-	LSB_INDEX = -1;
-	DIRECTION = OUTPUT;
-	PARENT = "dez_segundos";
-}
-
-SIGNAL("dez_segundos[0]")
-{
-	VALUE_TYPE = NINE_LEVEL_BIT;
-	SIGNAL_TYPE = SINGLE_BIT;
-	WIDTH = 1;
-	LSB_INDEX = -1;
-	DIRECTION = OUTPUT;
-	PARENT = "dez_segundos";
-}
-
-SIGNAL("dez_segundos_in")
-{
-	VALUE_TYPE = NINE_LEVEL_BIT;
-	SIGNAL_TYPE = BUS;
-	WIDTH = 4;
-	LSB_INDEX = 0;
 	DIRECTION = INPUT;
 	PARENT = "";
 }
 
-SIGNAL("dez_segundos_in[3]")
+SIGNAL("erro_saida")
 {
 	VALUE_TYPE = NINE_LEVEL_BIT;
 	SIGNAL_TYPE = SINGLE_BIT;
 	WIDTH = 1;
 	LSB_INDEX = -1;
-	DIRECTION = INPUT;
-	PARENT = "dez_segundos_in";
+	DIRECTION = OUTPUT;
+	PARENT = "";
 }
 
-SIGNAL("dez_segundos_in[2]")
+SIGNAL("gotejamento")
 {
 	VALUE_TYPE = NINE_LEVEL_BIT;
 	SIGNAL_TYPE = SINGLE_BIT;
 	WIDTH = 1;
 	LSB_INDEX = -1;
 	DIRECTION = INPUT;
-	PARENT = "dez_segundos_in";
+	PARENT = "";
 }
 
-SIGNAL("dez_segundos_in[1]")
+SIGNAL("gotejamento_saida")
 {
 	VALUE_TYPE = NINE_LEVEL_BIT;
 	SIGNAL_TYPE = SINGLE_BIT;
 	WIDTH = 1;
 	LSB_INDEX = -1;
-	DIRECTION = INPUT;
-	PARENT = "dez_segundos_in";
+	DIRECTION = OUTPUT;
+	PARENT = "";
 }
 
-SIGNAL("dez_segundos_in[0]")
+SIGNAL("limpeza_saida")
 {
 	VALUE_TYPE = NINE_LEVEL_BIT;
 	SIGNAL_TYPE = SINGLE_BIT;
 	WIDTH = 1;
 	LSB_INDEX = -1;
-	DIRECTION = INPUT;
-	PARENT = "dez_segundos_in";
+	DIRECTION = OUTPUT;
+	PARENT = "";
 }
 
 SIGNAL("reset")
@@ -196,114 +198,93 @@ SIGNAL("reset")
 	PARENT = "";
 }
 
-SIGNAL("timeout")
-{
-	VALUE_TYPE = NINE_LEVEL_BIT;
-	SIGNAL_TYPE = SINGLE_BIT;
-	WIDTH = 1;
-	LSB_INDEX = -1;
-	DIRECTION = OUTPUT;
-	PARENT = "";
-}
-
-SIGNAL("uni_segundos")
+SIGNAL("state")
 {
 	VALUE_TYPE = NINE_LEVEL_BIT;
 	SIGNAL_TYPE = BUS;
-	WIDTH = 4;
+	WIDTH = 3;
 	LSB_INDEX = 0;
 	DIRECTION = OUTPUT;
 	PARENT = "";
 }
 
-SIGNAL("uni_segundos[3]")
+SIGNAL("state[2]")
 {
 	VALUE_TYPE = NINE_LEVEL_BIT;
 	SIGNAL_TYPE = SINGLE_BIT;
 	WIDTH = 1;
 	LSB_INDEX = -1;
 	DIRECTION = OUTPUT;
-	PARENT = "uni_segundos";
+	PARENT = "state";
 }
 
-SIGNAL("uni_segundos[2]")
+SIGNAL("state[1]")
 {
 	VALUE_TYPE = NINE_LEVEL_BIT;
 	SIGNAL_TYPE = SINGLE_BIT;
 	WIDTH = 1;
 	LSB_INDEX = -1;
 	DIRECTION = OUTPUT;
-	PARENT = "uni_segundos";
+	PARENT = "state";
 }
 
-SIGNAL("uni_segundos[1]")
+SIGNAL("state[0]")
 {
 	VALUE_TYPE = NINE_LEVEL_BIT;
 	SIGNAL_TYPE = SINGLE_BIT;
 	WIDTH = 1;
 	LSB_INDEX = -1;
 	DIRECTION = OUTPUT;
-	PARENT = "uni_segundos";
+	PARENT = "state";
 }
 
-SIGNAL("uni_segundos[0]")
+SIGNAL("countLi")
 {
 	VALUE_TYPE = NINE_LEVEL_BIT;
 	SIGNAL_TYPE = SINGLE_BIT;
 	WIDTH = 1;
 	LSB_INDEX = -1;
-	DIRECTION = OUTPUT;
-	PARENT = "uni_segundos";
-}
-
-SIGNAL("uni_segundos_in")
-{
-	VALUE_TYPE = NINE_LEVEL_BIT;
-	SIGNAL_TYPE = BUS;
-	WIDTH = 4;
-	LSB_INDEX = 0;
 	DIRECTION = INPUT;
 	PARENT = "";
 }
 
-SIGNAL("uni_segundos_in[3]")
+TRANSITION_LIST("aspersao")
 {
-	VALUE_TYPE = NINE_LEVEL_BIT;
-	SIGNAL_TYPE = SINGLE_BIT;
-	WIDTH = 1;
-	LSB_INDEX = -1;
-	DIRECTION = INPUT;
-	PARENT = "uni_segundos_in";
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 0 FOR 10.0;
+		LEVEL 1 FOR 20.0;
+		LEVEL 0 FOR 70.0;
+	}
 }
 
-SIGNAL("uni_segundos_in[2]")
+TRANSITION_LIST("aspersao_saida")
 {
-	VALUE_TYPE = NINE_LEVEL_BIT;
-	SIGNAL_TYPE = SINGLE_BIT;
-	WIDTH = 1;
-	LSB_INDEX = -1;
-	DIRECTION = INPUT;
-	PARENT = "uni_segundos_in";
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL X FOR 100.0;
+	}
 }
 
-SIGNAL("uni_segundos_in[1]")
+TRANSITION_LIST("cheio")
 {
-	VALUE_TYPE = NINE_LEVEL_BIT;
-	SIGNAL_TYPE = SINGLE_BIT;
-	WIDTH = 1;
-	LSB_INDEX = -1;
-	DIRECTION = INPUT;
-	PARENT = "uni_segundos_in";
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL 1 FOR 30.0;
+		LEVEL 0 FOR 70.0;
+	}
 }
 
-SIGNAL("uni_segundos_in[0]")
+TRANSITION_LIST("cheio_saida")
 {
-	VALUE_TYPE = NINE_LEVEL_BIT;
-	SIGNAL_TYPE = SINGLE_BIT;
-	WIDTH = 1;
-	LSB_INDEX = -1;
-	DIRECTION = INPUT;
-	PARENT = "uni_segundos_in";
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL X FOR 100.0;
+	}
 }
 
 TRANSITION_LIST("clk")
@@ -313,14 +294,14 @@ TRANSITION_LIST("clk")
 		REPEAT = 1;
 		NODE
 		{
-			REPEAT = 100;
-			LEVEL 0 FOR 0.5;
-			LEVEL 1 FOR 0.5;
+			REPEAT = 10;
+			LEVEL 0 FOR 5.0;
+			LEVEL 1 FOR 5.0;
 		}
 	}
 }
 
-TRANSITION_LIST("dez_segundos[3]")
+TRANSITION_LIST("enchendo_saida")
 {
 	NODE
 	{
@@ -329,34 +310,7 @@ TRANSITION_LIST("dez_segundos[3]")
 	}
 }
 
-TRANSITION_LIST("dez_segundos[2]")
-{
-	NODE
-	{
-		REPEAT = 1;
-		LEVEL X FOR 100.0;
-	}
-}
-
-TRANSITION_LIST("dez_segundos[1]")
-{
-	NODE
-	{
-		REPEAT = 1;
-		LEVEL X FOR 100.0;
-	}
-}
-
-TRANSITION_LIST("dez_segundos[0]")
-{
-	NODE
-	{
-		REPEAT = 1;
-		LEVEL X FOR 100.0;
-	}
-}
-
-TRANSITION_LIST("dez_segundos_in[3]")
+TRANSITION_LIST("erro_nivel")
 {
 	NODE
 	{
@@ -365,16 +319,16 @@ TRANSITION_LIST("dez_segundos_in[3]")
 	}
 }
 
-TRANSITION_LIST("dez_segundos_in[2]")
+TRANSITION_LIST("erro_saida")
 {
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 1 FOR 100.0;
+		LEVEL X FOR 100.0;
 	}
 }
 
-TRANSITION_LIST("dez_segundos_in[1]")
+TRANSITION_LIST("gotejamento")
 {
 	NODE
 	{
@@ -383,12 +337,21 @@ TRANSITION_LIST("dez_segundos_in[1]")
 	}
 }
 
-TRANSITION_LIST("dez_segundos_in[0]")
+TRANSITION_LIST("gotejamento_saida")
 {
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL 1 FOR 100.0;
+		LEVEL X FOR 100.0;
+	}
+}
+
+TRANSITION_LIST("limpeza_saida")
+{
+	NODE
+	{
+		REPEAT = 1;
+		LEVEL X FOR 100.0;
 	}
 }
 
@@ -401,7 +364,7 @@ TRANSITION_LIST("reset")
 	}
 }
 
-TRANSITION_LIST("timeout")
+TRANSITION_LIST("state[2]")
 {
 	NODE
 	{
@@ -410,7 +373,7 @@ TRANSITION_LIST("timeout")
 	}
 }
 
-TRANSITION_LIST("uni_segundos[3]")
+TRANSITION_LIST("state[1]")
 {
 	NODE
 	{
@@ -419,7 +382,7 @@ TRANSITION_LIST("uni_segundos[3]")
 	}
 }
 
-TRANSITION_LIST("uni_segundos[2]")
+TRANSITION_LIST("state[0]")
 {
 	NODE
 	{
@@ -428,63 +391,18 @@ TRANSITION_LIST("uni_segundos[2]")
 	}
 }
 
-TRANSITION_LIST("uni_segundos[1]")
+TRANSITION_LIST("countLi")
 {
 	NODE
 	{
 		REPEAT = 1;
-		LEVEL X FOR 100.0;
-	}
-}
-
-TRANSITION_LIST("uni_segundos[0]")
-{
-	NODE
-	{
-		REPEAT = 1;
-		LEVEL X FOR 100.0;
-	}
-}
-
-TRANSITION_LIST("uni_segundos_in[3]")
-{
-	NODE
-	{
-		REPEAT = 1;
-		LEVEL 0 FOR 100.0;
-	}
-}
-
-TRANSITION_LIST("uni_segundos_in[2]")
-{
-	NODE
-	{
-		REPEAT = 1;
-		LEVEL 0 FOR 100.0;
-	}
-}
-
-TRANSITION_LIST("uni_segundos_in[1]")
-{
-	NODE
-	{
-		REPEAT = 1;
-		LEVEL 0 FOR 100.0;
-	}
-}
-
-TRANSITION_LIST("uni_segundos_in[0]")
-{
-	NODE
-	{
-		REPEAT = 1;
-		LEVEL 0 FOR 100.0;
+		LEVEL 1 FOR 100.0;
 	}
 }
 
 DISPLAY_LINE
 {
-	CHANNEL = "reset";
+	CHANNEL = "aspersao";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 0;
@@ -493,7 +411,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "clk";
+	CHANNEL = "aspersao_saida";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 1;
@@ -502,117 +420,107 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "uni_segundos_in";
+	CHANNEL = "cheio";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 2;
 	TREE_LEVEL = 0;
-	CHILDREN = 3, 4, 5, 6;
 }
 
 DISPLAY_LINE
 {
-	CHANNEL = "uni_segundos_in[3]";
+	CHANNEL = "cheio_saida";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 3;
-	TREE_LEVEL = 1;
-	PARENT = 2;
+	TREE_LEVEL = 0;
 }
 
 DISPLAY_LINE
 {
-	CHANNEL = "uni_segundos_in[2]";
+	CHANNEL = "clk";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 4;
-	TREE_LEVEL = 1;
-	PARENT = 2;
+	TREE_LEVEL = 0;
 }
 
 DISPLAY_LINE
 {
-	CHANNEL = "uni_segundos_in[1]";
+	CHANNEL = "enchendo_saida";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 5;
-	TREE_LEVEL = 1;
-	PARENT = 2;
+	TREE_LEVEL = 0;
 }
 
 DISPLAY_LINE
 {
-	CHANNEL = "uni_segundos_in[0]";
+	CHANNEL = "erro_nivel";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 6;
-	TREE_LEVEL = 1;
-	PARENT = 2;
+	TREE_LEVEL = 0;
 }
 
 DISPLAY_LINE
 {
-	CHANNEL = "dez_segundos_in";
+	CHANNEL = "erro_saida";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 7;
 	TREE_LEVEL = 0;
-	CHILDREN = 8, 9, 10, 11;
 }
 
 DISPLAY_LINE
 {
-	CHANNEL = "dez_segundos_in[3]";
+	CHANNEL = "gotejamento";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 8;
-	TREE_LEVEL = 1;
-	PARENT = 7;
+	TREE_LEVEL = 0;
 }
 
 DISPLAY_LINE
 {
-	CHANNEL = "dez_segundos_in[2]";
+	CHANNEL = "gotejamento_saida";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 9;
-	TREE_LEVEL = 1;
-	PARENT = 7;
+	TREE_LEVEL = 0;
 }
 
 DISPLAY_LINE
 {
-	CHANNEL = "dez_segundos_in[1]";
+	CHANNEL = "limpeza_saida";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 10;
-	TREE_LEVEL = 1;
-	PARENT = 7;
+	TREE_LEVEL = 0;
 }
 
 DISPLAY_LINE
 {
-	CHANNEL = "dez_segundos_in[0]";
+	CHANNEL = "reset";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 11;
-	TREE_LEVEL = 1;
-	PARENT = 7;
+	TREE_LEVEL = 0;
 }
 
 DISPLAY_LINE
 {
-	CHANNEL = "uni_segundos";
+	CHANNEL = "state";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 12;
 	TREE_LEVEL = 0;
-	CHILDREN = 13, 14, 15, 16;
+	CHILDREN = 13, 14, 15;
 }
 
 DISPLAY_LINE
 {
-	CHANNEL = "uni_segundos[3]";
+	CHANNEL = "state[2]";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 13;
@@ -622,7 +530,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "uni_segundos[2]";
+	CHANNEL = "state[1]";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 14;
@@ -632,7 +540,7 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "uni_segundos[1]";
+	CHANNEL = "state[0]";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 15;
@@ -642,70 +550,10 @@ DISPLAY_LINE
 
 DISPLAY_LINE
 {
-	CHANNEL = "uni_segundos[0]";
+	CHANNEL = "countLi";
 	EXPAND_STATUS = COLLAPSED;
 	RADIX = Binary;
 	TREE_INDEX = 16;
-	TREE_LEVEL = 1;
-	PARENT = 12;
-}
-
-DISPLAY_LINE
-{
-	CHANNEL = "dez_segundos";
-	EXPAND_STATUS = COLLAPSED;
-	RADIX = Binary;
-	TREE_INDEX = 17;
-	TREE_LEVEL = 0;
-	CHILDREN = 18, 19, 20, 21;
-}
-
-DISPLAY_LINE
-{
-	CHANNEL = "dez_segundos[3]";
-	EXPAND_STATUS = COLLAPSED;
-	RADIX = Binary;
-	TREE_INDEX = 18;
-	TREE_LEVEL = 1;
-	PARENT = 17;
-}
-
-DISPLAY_LINE
-{
-	CHANNEL = "dez_segundos[2]";
-	EXPAND_STATUS = COLLAPSED;
-	RADIX = Binary;
-	TREE_INDEX = 19;
-	TREE_LEVEL = 1;
-	PARENT = 17;
-}
-
-DISPLAY_LINE
-{
-	CHANNEL = "dez_segundos[1]";
-	EXPAND_STATUS = COLLAPSED;
-	RADIX = Binary;
-	TREE_INDEX = 20;
-	TREE_LEVEL = 1;
-	PARENT = 17;
-}
-
-DISPLAY_LINE
-{
-	CHANNEL = "dez_segundos[0]";
-	EXPAND_STATUS = COLLAPSED;
-	RADIX = Binary;
-	TREE_INDEX = 21;
-	TREE_LEVEL = 1;
-	PARENT = 17;
-}
-
-DISPLAY_LINE
-{
-	CHANNEL = "timeout";
-	EXPAND_STATUS = COLLAPSED;
-	RADIX = Binary;
-	TREE_INDEX = 22;
 	TREE_LEVEL = 0;
 }
 

@@ -5,6 +5,7 @@ module MEF (
     input wire gotejamento,
     input wire aspersao,
     input wire erro_nivel,
+	 input wire countLi,
     output reg [2:0] state,
     output reg enchendo_saida,
     output reg cheio_saida,
@@ -36,7 +37,7 @@ module MEF (
     always @(*) begin
         case (current_state)
             ESTADO_ENCHENDO: begin
-                if (cheio)
+                if (cheio && !erro_nivel)
                     next_state = ESTADO_CHEIO;
                 else if (erro_nivel)
                     next_state = ESTADO_ERRO;
@@ -44,9 +45,9 @@ module MEF (
                     next_state = ESTADO_ENCHENDO;
             end
             ESTADO_CHEIO: begin
-                if (gotejamento)
+                if (gotejamento && !erro_nivel)
                     next_state = ESTADO_GOTEJANDO;
-                else if (aspersao)
+                else if (aspersao && !erro_nivel)
                     next_state = ESTADO_ASPERSAO;
 					 else if (erro_nivel)
                     next_state = ESTADO_ERRO;
@@ -54,7 +55,7 @@ module MEF (
                     next_state = ESTADO_CHEIO;
             end
             ESTADO_GOTEJANDO: begin
-                if (!gotejamento )
+                if (!gotejamento && !erro_nivel)
                     next_state = ESTADO_LIMPEZA;
                 else if (erro_nivel)
                     next_state = ESTADO_ERRO;
@@ -62,7 +63,7 @@ module MEF (
                     next_state = ESTADO_GOTEJANDO;
             end
             ESTADO_ASPERSAO: begin
-                if (!aspersao)
+                if (!aspersao && !erro_nivel)
                     next_state = ESTADO_LIMPEZA;
                 else if (erro_nivel)
                     next_state = ESTADO_ERRO;
@@ -70,10 +71,12 @@ module MEF (
                     next_state = ESTADO_ASPERSAO;
             end
             ESTADO_LIMPEZA: begin
-                if (!cheio && !erro_nivel)
+                if (!cheio && !erro_nivel && countLi)
 						  next_state = ESTADO_ENCHENDO;
+					 else if(erro_nivel)
+						  next_state = ESTADO_ERRO; 
 					 else
-						  next_state = ESTADO_ERRO;
+						  next_state = ESTADO_LIMPEZA;
             end
             ESTADO_ERRO: begin
                 if (!erro_nivel && !cheio)
@@ -81,7 +84,6 @@ module MEF (
                 else
                     next_state = ESTADO_ERRO;
             end
-            default: next_state = ESTADO_ENCHENDO;
         endcase
     end
 

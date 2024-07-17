@@ -19,7 +19,7 @@ module mux_estado(
                 dezena <= 4'b0000;
                 unidade <= 4'b0101;
             end
-            3'b101: begin // ESTADO_ENCHENDO
+            3'b101: begin // ESTADO_ERRO
                 dezena <= 4'b0001;
                 unidade <= 4'b0000;
             end

@@ -9,7 +9,7 @@ module sistemaIrrigacao (
     output Bs
 );
 
-    // Declaração de fios internos
+   /* // Declaração de fios internos
     wire Ba, Bb, Aa, Ab;
     wire UsInv, UaInv, Tinv, Hinv, Minv;
 
@@ -22,14 +22,17 @@ module sistemaIrrigacao (
 
     // Cálculo das saídas Vs (aspersão) e Bs (gotejamento)
 
-    // Aspersão [Bs] = ~Us ~Ua ~H ~M L + ~Us ~T M L
+    // Aspersão [Bs] = (!Us) (!Ua) (!H) (!M) L || (!Us) (!T) M L
     and B1 (Ba, UsInv, UaInv, Hinv, Minv, L);
     and B2 (Bb, UsInv, Tinv, M, L);
     or B3 (Bs, Ba, Bb);
 
-    // Gotejamento [Vs] = ~Us Ua ~H ~M L + ~Us Ua T M L
+    // Gotejamento [Vs] = (!Us) Ua (!H) (!M) L || (!Us) Ua T M L
     and A1 (Aa, UsInv, Ua, Hinv, Minv, L);
     and A2 (Ab, UsInv, Ua, T, M, L);
-    or A3 (Vs, Aa, Ab);
+    or A3 (Vs, Aa, Ab); */
+	 
+	 assign Vs = ((!Us) && (!Ua) && (!T) && L && (!M) && (!H)) || ((!Us) && (!Ua) && (!T) && L && M && (!H)) || ((!Us) && (!Ua) && (!T) && L && M && H) || ((!Us) && (!Ua) && T && L && (!M) && (!H)) || ((!Us) && Ua && (!T) && L && M && (!H)) || ((!Us) && Ua && (!T) && L && M && H);
+	 assign Bs = ((!Us) && Ua && (!T) && L && (!M) && (!H)) || ((!Us) && Ua && T && L && (!M) && (!H)) || ((!Us) && Ua && T && L && M && (!H)) || ((!Us) && Ua && T && L && M && H);
 
 endmodule
